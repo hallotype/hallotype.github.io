@@ -55,6 +55,12 @@ fontcssFile.close()
 htmlFile = open("templateindex.html", "r")
 htmlFileTxt = htmlFile.read()
 htmlFile.close()
+
+headerFile = open("header.html", "r")
+headerFileTxt = headerFile.read()
+headerFile.close()
+
+
 htmlIndex = open("site/index.html", "w+")
-htmlIndex.write(htmlFileTxt.format(typebody=typebody))
+htmlIndex.write(htmlFileTxt.format(header=headerFileTxt, typebody=typebody))
 htmlIndex.close()
