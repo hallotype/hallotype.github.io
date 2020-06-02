@@ -1,40 +1,12 @@
 p {
   font-size: 72px;
   line-height: 72px;
-
-  display: block;
-  margin-block-start: 0.3em;
-  margin-block-end: 0.6em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
 }
+
 p:focus {
   outline: 0px solid gainsboro;
 }
 
 p:active {
   /* outline: 3px solid red; */
-}
-
-#header {
-  font-family: "Niccolo-Test_normalized";
-  width: 200px;
-  float: left;
-  /* margin-right: 36px; */
-  background-color: crimson;
-  color: whitesmoke;
-  padding-left: 16px;
-  padding-top: 30px;
-  top: -20px;
-  position: fixed;
-}
-#header p {
-  font-size: 36px;
-  line-height: 36px;
-}
-#lineup {
-  left: 250px;
-  /* float: left; */
-  position: relative;
-  margin-left: 30px;
 }

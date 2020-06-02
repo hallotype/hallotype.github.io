@@ -8,14 +8,6 @@
 }
 
 @font-face {
-  font-family: "bit6502";
-  src: url("bit6502.otf") format("opentype");
-}
-.bit6502 {
-  font-family: "bit6502";
-}
-
-@font-face {
   font-family: "Cheese_color_colr";
   src: url("Cheese_color_colr.otf") format("opentype");
 }
@@ -48,27 +40,11 @@
 }
 
 @font-face {
-  font-family: "Sketch-Fine";
-  src: url("Sketch-Fine.otf") format("opentype");
-}
-.Sketch-Fine {
-  font-family: "Sketch-Fine";
-}
-
-@font-face {
   font-family: "somename";
   src: url("somename.otf") format("opentype");
 }
 .somename {
   font-family: "somename";
-}
-
-@font-face {
-  font-family: "Bex-BoldItalic_web";
-  src: url("Bex-BoldItalic_web.woff2") format("woff2");
-}
-.Bex-BoldItalic_web {
-  font-family: "Bex-BoldItalic_web";
 }
 
 @font-face {

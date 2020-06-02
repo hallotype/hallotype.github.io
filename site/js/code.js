@@ -1,2 +1,0 @@
-let word;
-word = "OHambrugje";
