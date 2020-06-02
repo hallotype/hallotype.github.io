@@ -1,0 +1,2 @@
+let word;
+word = "OHambrugje";

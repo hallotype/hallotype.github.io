@@ -1,0 +1,8 @@
+- convert to base64 fonts
+  - ignore font files
+- subsetter
+- variable support
+- change texts across all types simultaneous
+- add a grid view
+  - switcher line-up and grid view
+
