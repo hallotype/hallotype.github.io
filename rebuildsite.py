@@ -53,8 +53,8 @@ for font in glob.glob(fontFolder+"**"):
     aff = aff.replace("]", "}")
     fontCss += aff
     typebody += htmlThing.format(fontname=fontname)
+    print('test')
 
-print(fontCss)
 
 fontcssFile = open(fontFolder+"/fontcss.css", "w+")
 fontcssFile.write(fontCss)
