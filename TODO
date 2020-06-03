@@ -1,4 +1,5 @@
-- convert to base64 fonts
+- convert to woff2
+  - woff2 > base64 
   - ignore font files
 - subsetter
 - variable support

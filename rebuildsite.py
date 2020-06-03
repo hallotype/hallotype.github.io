@@ -2,7 +2,7 @@ from os.path import basename
 import os
 import glob
 """
-look into font folder
+look into BASE64 folder
 populate fontcss @font-faces
 populate html
 
@@ -11,9 +11,12 @@ TODO:
   > compile otf on build 
 """
 
-fontFolder = "site/fonts/"
+fontFolder = "compiledFonts/BASE64/"
 validFontExtensions = {"otf": "opentype",
-                       "ttf": "truetype", "woff2": "woff2", "woff": "woff"}
+                       "ttf": "truetype",
+                       "woff2": "woff2",
+                       "woff": "woff",
+                       "b64": "base64"}
 
 
 fontCss = ""
@@ -22,7 +25,7 @@ typebody = ""
 AtFontFace = u"""
 @font-face [
   font-family: "{fontname}";
-  src: url("{path}") format("{type}");
+  src:url(data:font/woff2;base64,{b64});
 ]
 .{fontname} [
   font-family: "{fontname}";
@@ -36,17 +39,22 @@ htmlThing = """
 for font in glob.glob(fontFolder+"**"):
     if font.split(".")[-1] not in validFontExtensions:
         continue
+    print(font)
     path = basename(font)
     items = os.path.splitext(path)
     fontname = items[0]
     extension = items[-1][1:]
-    type = validFontExtensions[extension]
-    aff = (AtFontFace.format(path=path, type=type, fontname=fontname))
+    file = open(font, 'r')
+    b64 = file.read()
+    file.close()
+    # type = validFontExtensions[extension]
+    aff = (AtFontFace.format(fontname=fontname, b64=b64))
     aff = aff.replace("[", "{")
     aff = aff.replace("]", "}")
     fontCss += aff
     typebody += htmlThing.format(fontname=fontname)
 
+print(fontCss)
 
 fontcssFile = open(fontFolder+"/fontcss.css", "w+")
 fontcssFile.write(fontCss)
