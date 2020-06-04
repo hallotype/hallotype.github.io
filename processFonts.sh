@@ -3,7 +3,7 @@ targetFolder=compiledFonts
 woff2Dir=$targetFolder"/WOFF2"
 base64Dir=$targetFolder"/BASE64"
 #clean up
-#rm -rf $compiledFonts/
+rm -rf $targetFolder/
 mkdir -p $woff2Dir $base64Dir
 
 # find all otf ad ttf

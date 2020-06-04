@@ -56,7 +56,7 @@ for font in glob.glob(fontFolder+"**"):
     print('test')
 
 
-fontcssFile = open(fontFolder+"/fontcss.css", "w+")
+fontcssFile = open("site/css/fontcss.css", "w+")
 fontcssFile.write(fontCss)
 fontcssFile.close()
 
