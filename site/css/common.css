@@ -28,6 +28,7 @@ p:active {
   top: -20px;
   position: fixed;
 }
+
 #header p {
   font-size: 36px;
   line-height: 36px;
@@ -37,4 +38,37 @@ p:active {
   /* float: left; */
   position: relative;
   margin-left: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  #header {
+    position: relative;
+    float: none;
+    margin-left: 12px;
+    width: 144px;
+    height: 144px;
+  }
+  #header p {
+    font-size: 24px;
+    line-height: 24px;
+    width: 100px;
+  }
+
+  #lineup {
+    left: 0px;
+    /* float: left; */
+    position: relative;
+    margin-left: 12px;
+  }
+  #lineup p {
+    font-size: 36px;
+    line-height: 36px;
+
+    display: block;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.6em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    min-width: 800px;
+  }
 }
