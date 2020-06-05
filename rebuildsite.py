@@ -56,7 +56,7 @@ for font in glob.glob(fontFolder+"**"):
     print('test')
 
 
-fontcssFile = open("site/css/fontcss.css", "w+")
+fontcssFile = open("css/fontcss.css", "w+")
 fontcssFile.write(fontCss)
 fontcssFile.close()
 
@@ -69,6 +69,6 @@ headerFileTxt = headerFile.read()
 headerFile.close()
 
 
-htmlIndex = open("site/index.html", "w+")
+htmlIndex = open("index.html", "w+")
 htmlIndex.write(htmlFileTxt.format(header=headerFileTxt, typebody=typebody))
 htmlIndex.close()
