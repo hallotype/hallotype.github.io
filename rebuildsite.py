@@ -18,8 +18,8 @@ validFontExtensions = {"otf": "opentype",
                        "woff": "woff",
                        "b64": "base64"}
 
-
-fontCss = ""
+fontcsses = ""
+templateCss = '<link rel="stylesheet" href="css/%s.css" />\n'
 typebody = ""
 
 AtFontFace = u"""
@@ -40,6 +40,8 @@ for font in glob.glob(fontFolder+"**"):
     if font.split(".")[-1] not in validFontExtensions:
         continue
     print(font)
+    fontCss = ""
+
     path = basename(font)
     items = os.path.splitext(path)
     fontname = items[0]
@@ -53,12 +55,12 @@ for font in glob.glob(fontFolder+"**"):
     aff = aff.replace("]", "}")
     fontCss += aff
     typebody += htmlThing.format(fontname=fontname)
-    print('test')
 
+    fontcssFile = open("css/%s.css" % fontname, "w+")
+    fontcssFile.write(fontCss)
+    fontcssFile.close()
 
-fontcssFile = open("css/fontcss.css", "w+")
-fontcssFile.write(fontCss)
-fontcssFile.close()
+    fontcsses += templateCss % fontname
 
 htmlFile = open("templateindex.html", "r")
 htmlFileTxt = htmlFile.read()
@@ -70,5 +72,6 @@ headerFile.close()
 
 
 htmlIndex = open("index.html", "w+")
-htmlIndex.write(htmlFileTxt.format(header=headerFileTxt, typebody=typebody))
+htmlIndex.write(htmlFileTxt.format(fontcsses=fontcsses,
+                                   header=headerFileTxt, typebody=typebody))
 htmlIndex.close()
