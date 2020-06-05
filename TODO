@@ -1,10 +1,10 @@
-- convert to woff2
-  - woff2 > base64 
-  - ignore font files
++ convert to woff2
+  + woff2 > base64 
+  + ignore font files
 - subsetter
 - variable support
 - change texts across all types simultaneous
 - add a grid view
   - switcher line-up and grid view
 
-- seperate all font css for faster loading
++ seperate all font css for faster loading, 20200605
