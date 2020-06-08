@@ -6,9 +6,6 @@ look into BASE64 folder
 populate fontcss @font-faces
 populate html
 
-TODO:
-- support ufo
-  > compile otf on build 
 """
 
 fontFolder = "compiledFonts/BASE64/"
@@ -26,7 +23,7 @@ AtFontFace = u"""
 @font-face [
   font-family: "{fontname}";
   src:url(data:font/woff2;base64,{b64});
-]
+] 
 .{fontname} [
   font-family: "{fontname}";
 ]
@@ -73,5 +70,7 @@ headerFile.close()
 
 htmlIndex = open("index.html", "w+")
 htmlIndex.write(htmlFileTxt.format(fontcsses=fontcsses,
-                                   header=headerFileTxt, typebody=typebody))
+                                   header=headerFileTxt,
+                                   typebody=typebody,)
+                )
 htmlIndex.close()

@@ -1,10 +1,16 @@
-+ convert to woff2
-  + woff2 > base64 
-  + ignore font files
 - subsetter
 - variable support
 - change texts across all types simultaneous
 - add a grid view
   - switcher line-up and grid view
+- order?
+- support UFO, a path to UFO as only ref?
+  - compile otf > woff2 > base64 on the fly
+
+
+done:
 
 + seperate all font css for faster loading, 20200605
++ convert to woff2
+  + woff2 > base64 
+  + ignore font files
