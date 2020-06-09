@@ -16,6 +16,10 @@ p:active {
   /* outline: 3px solid red; */
 }
 
+.varTest {
+  font-variation-settings: "wght" 400;
+}
+
 #header {
   font-family: "pixels-smal";
   width: 200px;
