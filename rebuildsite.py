@@ -1,6 +1,15 @@
 from os.path import basename
 import os
 import glob
+
+from getAxes import getAxes
+
+# process the fonts
+os.system("sh processFonts.sh")
+fontsAxes = getAxes()
+
+# print(fontsAxes)
+
 """
 look into BASE64 folder
 populate fontcss @font-faces
@@ -36,12 +45,14 @@ htmlThing = """
 for font in glob.glob(fontFolder+"**"):
     if font.split(".")[-1] not in validFontExtensions:
         continue
-    print(font)
+    # print(font)
     fontCss = ""
 
     path = basename(font)
     items = os.path.splitext(path)
     fontname = items[0]
+    #print("fontname", fontname)
+
     extension = items[-1][1:]
     file = open(font, 'r')
     b64 = file.read()
@@ -52,6 +63,11 @@ for font in glob.glob(fontFolder+"**"):
     aff = aff.replace("]", "}")
     fontCss += aff
     typebody += htmlThing.format(fontname=fontname)
+    if fontname in fontsAxes:
+        for ax in fontsAxes[fontname]:
+            typebody += "<input type='range' class='ax' min='%s' max='%s' value='%s'>%s" % (
+                ax['min'], ax['max'], ax['def'], ax['tag'])
+        typebody += "<div class='clear'></div>"
 
     fontcssFile = open("css/%s.css" % fontname, "w+")
     fontcssFile.write(fontCss)
@@ -67,6 +83,7 @@ headerFile = open("header.html", "r")
 headerFileTxt = headerFile.read()
 headerFile.close()
 
+print(typebody)
 
 htmlIndex = open("index.html", "w+")
 htmlIndex.write(htmlFileTxt.format(fontcsses=fontcsses,
