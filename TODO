@@ -1,9 +1,18 @@
 - subsetter
 - variable support
+  - added sliders to var fonts:
+    - min/max/def values
+    - need to come up with unique id for ech slider fontname+axis-tag?
+    - write js to update css onChange
+
 - change texts across all types simultaneous
 - add a grid view
   - switcher line-up and grid view
 - order?
+- PAN is only caps, rebuild the fonts or some how via a sep text file telling the main script this is a caps only font?
+
+
+ideas for 2021
 - support UFO, a path to UFO as only ref?
   - compile otf > woff2 > base64 on the fly
 
