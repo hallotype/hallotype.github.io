@@ -41,6 +41,14 @@ AtFontFace = u"""
 htmlThing = """
 <p contenteditable="true" class="{fontname}">OHamburgefonstiv</p>
 """
+slidersScript = ""
+sliderTemplate = """
+const {fontname}{tag} = document.querySelector("#{fontname}{tag}");
+{fontname}{tag}.addEventListener("mousemove", (event) => [
+  let parent = document.querySelector(".{fontname}");
+  parent.style.cssText = "font-variation-settings: '{tag}' " + {fontname}{tag}.value;
+]);
+"""
 
 for font in glob.glob(fontFolder+"**"):
     if font.split(".")[-1] not in validFontExtensions:
@@ -65,8 +73,15 @@ for font in glob.glob(fontFolder+"**"):
     typebody += htmlThing.format(fontname=fontname)
     if fontname in fontsAxes:
         for ax in fontsAxes[fontname]:
-            typebody += "<input type='range' class='ax' min='%s' max='%s' value='%s'>%s" % (
-                ax['min'], ax['max'], ax['def'], ax['tag'])
+            typebody += "<input type='range' class='ax' min='%s' max='%s' value='%s' id=%s%s>%s " % (
+                ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag'])
+            slider = sliderTemplate.format(
+                fontname=fontname,
+                tag=ax['tag']
+            )
+            slider = slider.replace("[", "{")
+            slider = slider.replace("]", "}")
+            slidersScript += slider
         typebody += "<div class='clear'></div>"
 
     fontcssFile = open("css/%s.css" % fontname, "w+")
@@ -91,3 +106,7 @@ htmlIndex.write(htmlFileTxt.format(fontcsses=fontcsses,
                                    typebody=typebody,)
                 )
 htmlIndex.close()
+
+slidersScriptFile = open("js/script.js", "w+")
+slidersScriptFile.write(slidersScript)
+slidersScriptFile.close()
