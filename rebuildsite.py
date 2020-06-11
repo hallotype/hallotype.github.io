@@ -3,10 +3,12 @@ import os
 import glob
 
 from getAxes import getAxes
+from checkCharSets import checkCharSets
 
 # process the fonts
 os.system("sh processFonts.sh")
 fontsAxes = getAxes()
+charSets = checkCharSets()
 
 # print(fontsAxes)
 
@@ -39,7 +41,7 @@ AtFontFace = u"""
 """
 
 htmlThing = """
-<p contenteditable="true" class="{fontname}">OHamburgefonstiv</p>
+<p contenteditable="true" class="{fontname}{extraClasses}">OHamburgefonstiv</p>
 """
 slidersScript = ""
 sliderTemplate = """
@@ -70,7 +72,12 @@ for font in glob.glob(fontFolder+"**"):
     aff = aff.replace("[", "{")
     aff = aff.replace("]", "}")
     fontCss += aff
-    typebody += htmlThing.format(fontname=fontname)
+    extraClasses = ""
+    if fontname in charSets:
+        extraClasses = " "
+        for extraClass in charSets[fontname]:
+            extraClasses += extraClass
+    typebody += htmlThing.format(fontname=fontname, extraClasses=extraClasses)
     if fontname in fontsAxes:
         for ax in fontsAxes[fontname]:
             typebody += "<input type='range' class='ax' min='%s' max='%s' value='%s' id=%s%s>%s " % (

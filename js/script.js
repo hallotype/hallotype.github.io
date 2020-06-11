@@ -1,3 +1,4 @@
+
 const Panwght = document.querySelector("#Panwght");
 Panwght.addEventListener("mousemove", (event) => {
   let parent = document.querySelector(".Pan");
@@ -15,13 +16,9 @@ PanSTEP.addEventListener("mousemove", (event) => {
   let parent = document.querySelector(".Pan");
   parent.style.cssText = "font-variation-settings: 'STEP' " + PanSTEP.value;
 });
-// "touchstart"
+
 const bexwght = document.querySelector("#bexwght");
 bexwght.addEventListener("mousemove", (event) => {
-  let parent = document.querySelector(".bex");
-  parent.style.cssText = "font-variation-settings: 'wght' " + bexwght.value;
-});
-bexwght.addEventListener("touchstart", (event) => {
   let parent = document.querySelector(".bex");
   parent.style.cssText = "font-variation-settings: 'wght' " + bexwght.value;
 });

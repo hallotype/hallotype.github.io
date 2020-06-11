@@ -52,8 +52,11 @@ p:active {
   clear: both;
 }
 
-.capsonly {
+.noLowercase {
   text-transform: uppercase;
+}
+.noUppercase {
+  text-transform: lowercase;
 }
 
 @media only screen and (max-width: 600px) {
