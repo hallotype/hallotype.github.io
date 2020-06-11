@@ -1,6 +1,8 @@
 .DS_Store
 compiledFonts/
-fonts/
+*.otf
+*.ttf
+*.b64
 *.pyc
 test.py
 park/
