@@ -1,15 +1,15 @@
 - subsetter
 - variable support
-  - added sliders to var fonts:
-    - min/max/def values
-    - need to come up with unique id for ech slider fontname+axis-tag?
+  + added sliders to var fonts:
+    + min/max/def values
+    + need to come up with unique id for ech slider fontname+axis-tag?
     - write js to update css onChange
+    - touch events!
 
 - change texts across all types simultaneous
 - add a grid view
   - switcher line-up and grid view
 - order?
-- PAN is only caps, rebuild the fonts or some how via a sep text file telling the main script this is a caps only font?
 
 
 ideas for 2021
@@ -23,3 +23,11 @@ done:
 + convert to woff2
   + woff2 > base64 
   + ignore font files
++ var
+  > add sliders
+  > have correct values
+  > works with mouse events
+  ! need to fix for touch
++ PAN is only caps, rebuild the fonts or some how via a sep text file telling the main script this is a caps only font?
+  > added  checkCharSet script, looks into cmap if /a and /A is in cmap that tell if 
+    lowercase, uppercase  is in font.
