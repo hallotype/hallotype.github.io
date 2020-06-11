@@ -1,20 +1,52 @@
+var pan_dragging = false;
 
 const Panwght = document.querySelector("#Panwght");
-Panwght.addEventListener("mousemove", (event) => {
-  let parent = document.querySelector(".Pan");
-  parent.style.cssText = "font-variation-settings: 'wght' " + Panwght.value;
-});
-
 const PanANGL = document.querySelector("#PanANGL");
-PanANGL.addEventListener("mousemove", (event) => {
-  let parent = document.querySelector(".Pan");
-  parent.style.cssText = "font-variation-settings: 'ANGL' " + PanANGL.value;
+const PanSTEP = document.querySelector("#PanSTEP");
+const PanSliders = document.querySelector("#sliders-Pan");
+
+PanSliders.addEventListener("mousedown", (event) => {
+  pan_dragging = true;
+});
+PanSliders.addEventListener("mouseup", (event) => {
+  pan_dragging = false;
 });
 
-const PanSTEP = document.querySelector("#PanSTEP");
+Panwght.addEventListener("mousemove", (event) => {
+  if (pan_dragging) {
+    let parent = document.querySelector(".Pan");
+    parent.style.cssText =
+      "font-variation-settings: 'wght' " +
+      Panwght.value +
+      ", 'STEP' " +
+      PanSTEP.value +
+      ", 'ANGL' " +
+      PanANGL.value;
+  }
+});
+PanANGL.addEventListener("mousemove", (event) => {
+  if (pan_dragging) {
+    let parent = document.querySelector(".Pan");
+    parent.style.cssText =
+      "font-variation-settings: 'wght' " +
+      Panwght.value +
+      ", 'STEP' " +
+      PanSTEP.value +
+      ", 'ANGL' " +
+      PanANGL.value;
+  }
+});
 PanSTEP.addEventListener("mousemove", (event) => {
-  let parent = document.querySelector(".Pan");
-  parent.style.cssText = "font-variation-settings: 'STEP' " + PanSTEP.value;
+  if (pan_dragging) {
+    let parent = document.querySelector(".Pan");
+    parent.style.cssText =
+      "font-variation-settings: 'wght' " +
+      Panwght.value +
+      ", 'STEP' " +
+      PanSTEP.value +
+      ", 'ANGL' " +
+      PanANGL.value;
+  }
 });
 
 const bexwght = document.querySelector("#bexwght");

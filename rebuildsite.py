@@ -79,9 +79,11 @@ for font in glob.glob(fontFolder+"**"):
             extraClasses += extraClass
     typebody += htmlThing.format(fontname=fontname, extraClasses=extraClasses)
     if fontname in fontsAxes:
+        typebody += "<div id='sliders-" + fontname + "'>"
         for ax in fontsAxes[fontname]:
             typebody += "<input type='range' class='ax' min='%s' max='%s' value='%s' id=%s%s>%s " % (
-                ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag'])
+                ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag']
+            )
             slider = sliderTemplate.format(
                 fontname=fontname,
                 tag=ax['tag']
@@ -89,7 +91,7 @@ for font in glob.glob(fontFolder+"**"):
             slider = slider.replace("[", "{")
             slider = slider.replace("]", "}")
             slidersScript += slider
-        typebody += "<div class='clear'></div>"
+        typebody += "</div>"
 
     fontcssFile = open("css/%s.css" % fontname, "w+")
     fontcssFile.write(fontCss)
