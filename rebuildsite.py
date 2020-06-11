@@ -34,7 +34,7 @@ AtFontFace = u"""
 @font-face [
   font-family: "{fontname}";
   src:url(data:font/woff2;base64,{b64});
-] 
+]
 .{fontname} [
   font-family: "{fontname}";
 ]
@@ -61,7 +61,7 @@ for font in glob.glob(fontFolder+"**"):
     path = basename(font)
     items = os.path.splitext(path)
     fontname = items[0]
-    #print("fontname", fontname)
+    # print("fontname", fontname)
 
     extension = items[-1][1:]
     file = open(font, 'r')
@@ -80,18 +80,52 @@ for font in glob.glob(fontFolder+"**"):
     typebody += htmlThing.format(fontname=fontname, extraClasses=extraClasses)
     if fontname in fontsAxes:
         typebody += "<div id='sliders-" + fontname + "'>"
+        slidersScript += 'var %s_dragging = false;\n' % fontname
+        slidersScript += 'const %sSliders = document.querySelector("#sliders-%s");\n' % (
+            fontname, fontname)
+
         for ax in fontsAxes[fontname]:
             typebody += "<input type='range' class='ax' min='%s' max='%s' value='%s' id=%s%s>%s " % (
                 ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag']
             )
-            slider = sliderTemplate.format(
-                fontname=fontname,
-                tag=ax['tag']
-            )
-            slider = slider.replace("[", "{")
-            slider = slider.replace("]", "}")
-            slidersScript += slider
+            # slider = sliderTemplate.format(
+            #     fontname=fontname,
+            #     tag=ax['tag']
+            # )
+            # slider = slider.replace("[", "{")
+            # slider = slider.replace("]", "}")
+            # slidersScript += slider
+            slidersScript += 'const %s%s = document.querySelector("#%s%s");\n' % (
+                fontname, ax['tag'], fontname, ax['tag'],)
+
         typebody += "</div>"
+
+        slidersScript += """
+        %sSliders.addEventListener("mousedown", (event) => {
+          %s_dragging = true;
+        });
+        %sSliders.addEventListener("mouseup", (event) => {
+          %s_dragging = false;
+        });
+        """ % (fontname, fontname, fontname, fontname)
+
+        for ax in fontsAxes[fontname]:
+            slidersScript += """
+%s%s.addEventListener("mousemove", (event) => {
+  if (%s_dragging) {
+    let parent = document.querySelector(".%s");
+    parent.style.cssText =
+      "font-variation-settings:" +
+          """ % (fontname, ax['tag'], fontname, fontname)
+
+            for i, ax_ in enumerate(fontsAxes[fontname]):
+                if i == 0:
+                    slidersScript += '''"'%s' " + %s%s.value''' % (
+                        ax_['tag'], fontname, ax_['tag'])
+                else:
+                    slidersScript += '''+",'%s' " + %s%s.value''' % (
+                        ax_['tag'], fontname, ax_['tag'])
+            slidersScript += ";}});"
 
     fontcssFile = open("css/%s.css" % fontname, "w+")
     fontcssFile.write(fontCss)
