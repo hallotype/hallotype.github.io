@@ -22,15 +22,3 @@ bexwght.addEventListener("mousemove", (event) => {
   let parent = document.querySelector(".bex");
   parent.style.cssText = "font-variation-settings: 'wght' " + bexwght.value;
 });
-
-const TheStencilVarwght = document.querySelector("#TheStencilVarwght");
-TheStencilVarwght.addEventListener("mousemove", (event) => {
-  let parent = document.querySelector(".TheStencilVar");
-  parent.style.cssText = "font-variation-settings: 'wght' " + TheStencilVarwght.value;
-});
-
-const TheStencilVarBRDG = document.querySelector("#TheStencilVarBRDG");
-TheStencilVarBRDG.addEventListener("mousemove", (event) => {
-  let parent = document.querySelector(".TheStencilVar");
-  parent.style.cssText = "font-variation-settings: 'BRDG' " + TheStencilVarBRDG.value;
-});
