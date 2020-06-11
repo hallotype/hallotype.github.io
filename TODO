@@ -5,6 +5,7 @@
     + need to come up with unique id for ech slider fontname+axis-tag?
     - write js to update css onChange
     - touch events!
+    - multi axes css thing?
 
 - change texts across all types simultaneous
 - add a grid view
