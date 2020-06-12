@@ -84,22 +84,6 @@ for font in glob.glob(fontFolder+"**"):
         slidersScript += 'const %sSliders = document.querySelector("#sliders-%s");\n' % (
             fontname, fontname)
 
-        for ax in fontsAxes[fontname]:
-            typebody += "<input type='range' class='ax' min='%s' max='%s' value='%s' id=%s%s>%s " % (
-                ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag']
-            )
-            # slider = sliderTemplate.format(
-            #     fontname=fontname,
-            #     tag=ax['tag']
-            # )
-            # slider = slider.replace("[", "{")
-            # slider = slider.replace("]", "}")
-            # slidersScript += slider
-            slidersScript += 'const %s%s = document.querySelector("#%s%s");\n' % (
-                fontname, ax['tag'], fontname, ax['tag'],)
-
-        typebody += "</div>"
-
         slidersScript += """
         %sSliders.addEventListener("mousedown", (event) => {
           %s_dragging = true;
@@ -109,23 +93,25 @@ for font in glob.glob(fontFolder+"**"):
         });
         """ % (fontname, fontname, fontname, fontname)
 
-        for ax in fontsAxes[fontname]:
-            slidersScript += """
-%s%s.addEventListener("mousemove", (event) => {
-  if (%s_dragging) {
-    let parent = document.querySelector(".%s");
-    parent.style.cssText =
-      "font-variation-settings:" +
-          """ % (fontname, ax['tag'], fontname, fontname)
+        slidersScript += """
+        %sSliders.addEventListener("mousemove", (event) => {
+          if (%s_dragging) {
+            let parent = document.querySelector(".%s");
+            parent.style.cssText = "font-variation-settings:" +
+        """ % (fontname, fontname, fontname)
 
-            for i, ax_ in enumerate(fontsAxes[fontname]):
-                if i == 0:
-                    slidersScript += '''"'%s' " + %s%s.value''' % (
-                        ax_['tag'], fontname, ax_['tag'])
-                else:
-                    slidersScript += '''+",'%s' " + %s%s.value''' % (
-                        ax_['tag'], fontname, ax_['tag'])
-            slidersScript += ";}});"
+        for i, ax in enumerate(fontsAxes[fontname]):
+            typebody += "<input type='range' class='ax' min='%s' max='%s' value='%s' id=%s%s>%s " % (
+                ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag']
+            )
+            if i == 0:
+                slidersScript += '''"'%s' " + %s%s.value''' % (
+                    ax['tag'], fontname, ax['tag'])
+            else:
+                slidersScript += '''+",'%s' " + %s%s.value''' % (
+                    ax['tag'], fontname, ax['tag'])
+        slidersScript += ";}});"
+        typebody += "</div>"
 
     fontcssFile = open("css/%s.css" % fontname, "w+")
     fontcssFile.write(fontCss)
