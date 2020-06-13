@@ -1,6 +1,8 @@
-from os.path import basename
+import sys
 import os
 import glob
+
+from os.path import basename
 
 from getAxes import getAxes
 from checkCharSets import checkCharSets
@@ -28,7 +30,9 @@ validFontExtensions = {"otf": "opentype",
 
 fontcsses = ""
 templateCss = '<link rel="stylesheet" href="css/%s.css" />\n'
-typebody = ""
+thefonts = ""
+lineview = ""
+gridview = ""
 
 AtFontFace = u"""
 @font-face [
@@ -40,78 +44,83 @@ AtFontFace = u"""
 ]
 """
 
-htmlThing = """
-<p contenteditable="true" class="{fontname}{extraClasses}">OHamburgefonstiv</p>
+lineViewTemplate = """
+<p contenteditable="true" class="lineView">OHamburgefonstiv</p>
 """
+gridViewTemplate = """
+<p contenteditable="true" class="gridView invisible">A</p>
+"""
+
+
 slidersScript = ""
 sliderTemplate = """
-const {fontname}{tag} = document.querySelector("#{fontname}{tag}");
-{fontname}{tag}.addEventListener("mousemove", (event) => [
-  let parent = document.querySelector(".{fontname}");
-  parent.style.cssText = "font-variation-settings: '{tag}' " + {fontname}{tag}.value;
+var {fontname}_dragging = false;
+const {fontname}Sliders = document.querySelector("#sliders-{fontname}");
+{fontname}Sliders.addEventListener("mousedown", (event) => [
+  {fontname}_dragging = true;
 ]);
+{fontname}Sliders.addEventListener("mouseup", (event) => [
+  {fontname}_dragging = false;
+]);
+
+{fontname}Sliders.addEventListener("mousemove", (event) => [
+  if ({fontname}_dragging) [
+    let fontElements = document.querySelectorAll("div.{fontname} p");
+    fontElements.forEach(function (fontElement) [
+      fontElement.style.cssText =
+        "font-variation-settings:" +
 """
 
 for font in glob.glob(fontFolder+"**"):
     if font.split(".")[-1] not in validFontExtensions:
         continue
-    # print(font)
     fontCss = ""
 
     path = basename(font)
     items = os.path.splitext(path)
     fontname = items[0]
     # print("fontname", fontname)
-
     extension = items[-1][1:]
+
     file = open(font, 'r')
     b64 = file.read()
     file.close()
+
     # type = validFontExtensions[extension]
     aff = (AtFontFace.format(fontname=fontname, b64=b64))
-    aff = aff.replace("[", "{")
-    aff = aff.replace("]", "}")
+    aff = aff.replace("[", "{").replace("]", "}")
     fontCss += aff
+
     extraClasses = ""
     if fontname in charSets:
         extraClasses = " "
         for extraClass in charSets[fontname]:
             extraClasses += extraClass
-    typebody += htmlThing.format(fontname=fontname, extraClasses=extraClasses)
+
+    fontItem = "<div class='fontItem lineView {fontname}{extraClasses}'>".format(
+        fontname=fontname, extraClasses=extraClasses)
+    fontItem += lineViewTemplate
+    fontItem += gridViewTemplate
+
     if fontname in fontsAxes:
-        typebody += "<div id='sliders-" + fontname + "'>"
-        slidersScript += 'var %s_dragging = false;\n' % fontname
-        slidersScript += 'const %sSliders = document.querySelector("#sliders-%s");\n' % (
-            fontname, fontname)
-
-        slidersScript += """
-        %sSliders.addEventListener("mousedown", (event) => {
-          %s_dragging = true;
-        });
-        %sSliders.addEventListener("mouseup", (event) => {
-          %s_dragging = false;
-        });
-        """ % (fontname, fontname, fontname, fontname)
-
-        slidersScript += """
-        %sSliders.addEventListener("mousemove", (event) => {
-          if (%s_dragging) {
-            let parent = document.querySelector(".%s");
-            parent.style.cssText = "font-variation-settings:" +
-        """ % (fontname, fontname, fontname)
-
+        varSup = "<div class='varSup' id='sliders-" + fontname + "'>"
+        slidersScript += sliderTemplate.format(fontname=fontname)
+        slidersScript = slidersScript.replace("[", "{").replace("]", "}")
         for i, ax in enumerate(fontsAxes[fontname]):
-            typebody += "<input type='range' class='ax' min='%s' max='%s' value='%s' id=%s%s>%s " % (
+            varSup += "<input type='range' class='ax' min='%s' max='%s' value='%s' id=%s%s>%s " % (
                 ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag']
             )
             if i == 0:
-                slidersScript += '''"'%s' " + %s%s.value''' % (
+                slidersScript += '''"'%s' " + document.querySelector("#%s%s").value''' % (
                     ax['tag'], fontname, ax['tag'])
             else:
-                slidersScript += '''+",'%s' " + %s%s.value''' % (
+                slidersScript += '''+",'%s' " + document.querySelector("#%s%s").value''' % (
                     ax['tag'], fontname, ax['tag'])
-        slidersScript += ";}});"
-        typebody += "</div>"
+        slidersScript += "});}});"
+        varSup += "</div>"
+        fontItem += varSup
+    fontItem += "</div>"
+    thefonts += fontItem
 
     fontcssFile = open("css/%s.css" % fontname, "w+")
     fontcssFile.write(fontCss)
@@ -127,15 +136,16 @@ headerFile = open("header.html", "r")
 headerFileTxt = headerFile.read()
 headerFile.close()
 
-print(typebody)
+# print(lineview)
+
 
 htmlIndex = open("index.html", "w+")
 htmlIndex.write(htmlFileTxt.format(fontcsses=fontcsses,
                                    header=headerFileTxt,
-                                   typebody=typebody,)
+                                   thefonts=thefonts,)
                 )
 htmlIndex.close()
 
-slidersScriptFile = open("js/script.js", "w+")
+slidersScriptFile = open("js/varSupport.js", "w+")
 slidersScriptFile.write(slidersScript)
 slidersScriptFile.close()
