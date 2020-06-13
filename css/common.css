@@ -2,15 +2,6 @@ body {
   margin-top: 0;
 }
 
-.invisible {
-  display: none;
-}
-.visible_line {
-  display: block;
-}
-.visible_grid {
-}
-
 p:focus {
   outline: 0px solid gainsboro;
 }
@@ -92,7 +83,6 @@ div.gridView {
 }
 .gridView input {
   margin-bottom: 0;
-  
 }
 /* #gridview .gridviewItem p {
   float: left;
@@ -122,35 +112,48 @@ div.gridView {
   font-family: monospace;
 }
 
-/* @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   #header {
-    position: relative;
+    /* position: relative; */
     float: none;
-    margin-left: 12px;
+    margin-left: 6px;
     width: 144px;
     height: 144px;
+    padding-bottom: 0px;
+  }
+  #left {
+    float: none;
   }
   #header p {
-    font-size: 24px;
+    font-size: 30px;
     line-height: 24px;
     width: 100px;
+    padding-top: 0px;
+    margin-top: 12px;
   }
 
-  #lineup {
-    left: 0px;
-    /* float: left; */
-    position: relative;
-    margin-left: 12px;
+  #thefonts {
+    float: none;
+    width: 80vw;
   }
-  #lineup p {
+
+  .lineView p {
     font-size: 36px;
     line-height: 36px;
 
-    display: block;
     margin-block-start: 0.3em;
     margin-block-end: 0.6em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     min-width: 800px;
   }
-} */
+}
+
+.invisible {
+  display: none;
+}
+.visible_line {
+  display: block;
+}
+.visible_grid {
+}
