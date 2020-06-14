@@ -54,21 +54,13 @@ gridViewTemplate = """
 
 slidersScript = ""
 sliderTemplate = """
-var {fontname}_dragging = false;
 const {fontname}Sliders = document.querySelector("#sliders-{fontname}");
-{fontname}Sliders.addEventListener("mousedown", (event) => [
-  {fontname}_dragging = true;
-]);
-{fontname}Sliders.addEventListener("mouseup", (event) => [
-  {fontname}_dragging = false;
-]);
-
-{fontname}Sliders.addEventListener("mousemove", (event) => [
-  if ({fontname}_dragging) [
-    let fontElements = document.querySelectorAll("div.{fontname} p");
-    fontElements.forEach(function (fontElement) [
-      fontElement.style.cssText =
-        "font-variation-settings:" +
+{fontname}Sliders.oninput = {fontname}Changer;
+function {fontname}Changer(e) [
+  let fontElements = document.querySelectorAll("div.{fontname} p");
+  fontElements.forEach(function (fontElement) [
+    fontElement.style.cssText =
+      "font-variation-settings:" +
 """
 
 for font in glob.glob(fontFolder+"**"):
@@ -111,12 +103,12 @@ for font in glob.glob(fontFolder+"**"):
                 ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag']
             )
             if i == 0:
-                slidersScript += '''"'%s' " + document.querySelector("#%s%s").value''' % (
+                slidersScript += '''"'%s' " + document.querySelector("#%s%s").value\n''' % (
                     ax['tag'], fontname, ax['tag'])
             else:
-                slidersScript += '''+",'%s' " + document.querySelector("#%s%s").value''' % (
+                slidersScript += '''+",'%s' " + document.querySelector("#%s%s").value\n''' % (
                     ax['tag'], fontname, ax['tag'])
-        slidersScript += "});}});"
+        slidersScript += "  });}"
         varSup += "</div>"
         fontItem += varSup
     fontItem += "</div>"
