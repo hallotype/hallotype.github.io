@@ -3,13 +3,19 @@
   + added sliders to var fonts:
     + min/max/def values
     + need to come up with unique id for ech slider fontname+axis-tag?
-    - write js to update css onChange
-    - touch events!
-    - multi axes css thing?
-
+    + write js to update css ~onChange~ oninput
+    - touch events! 
+      > error in grid-view! ?
+- tools section?
+  - hershey
+  - some RF tools / extension? 
+  - workflows?
+  - ...
+- bio section?
+- images section?
+  - drawbot images / aminanimations?
+  - ...
 - change texts across all types simultaneous
-- add a grid view
-  - switcher line-up and grid view
 - order?
 
 
@@ -32,3 +38,5 @@ done:
 + PAN is only caps, rebuild the fonts or some how via a sep text file telling the main script this is a caps only font?
   > added  checkCharSet script, looks into cmap if /a and /A is in cmap that tell if 
     lowercase, uppercase  is in font.
++ add a grid view, 202020613
+  + switcher line-up and grid view
