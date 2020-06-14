@@ -5,7 +5,7 @@ const gridviews = document.querySelectorAll("p.gridView");
 const fontItems = document.querySelectorAll("div.fontItem");
 
 viewslineswitch.addEventListener("change", (event) => {
-  console.log("switch line", lineviews);
+  // console.log("switch line", lineviews);
   lineviews.forEach(function (item) {
     item.classList.add("visible_line");
     item.classList.remove("invisible");
@@ -21,9 +21,9 @@ viewslineswitch.addEventListener("change", (event) => {
 });
 
 viewsgridswitch.addEventListener("change", (event) => {
-  console.log("switch grid");
+  // console.log("switch grid");
   gridviews.forEach(function (item) {
-    console.log(item);
+    // console.log(item);
     item.classList.add("visible_grid");
     item.classList.remove("invisible");
   });
