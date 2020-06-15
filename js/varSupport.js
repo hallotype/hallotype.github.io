@@ -9,7 +9,7 @@ function PanChanger(e) {
       "'wght' " +
       document.querySelector("#Panwght").value +
       ",'ANGL' " +
-      document.getElementById("#PanANGL").value +
+      document.getElementById("PanANGL").value +
       ",'STEP' " +
       document.querySelector("#PanSTEP").value;
   });
