@@ -16,7 +16,7 @@ viewslineswitch.addEventListener("change", (event) => {
   });
   fontItems.forEach(function (item) {
     item.classList.add("lineView");
-    //   item.classList.remove("gridView");
+    item.classList.remove("gridView");
   });
 });
 
@@ -33,6 +33,6 @@ viewsgridswitch.addEventListener("change", (event) => {
   });
   fontItems.forEach(function (item) {
     item.classList.add("gridView");
-    //   item.classList.remove("lineView");
+    item.classList.remove("lineView");
   });
 });
