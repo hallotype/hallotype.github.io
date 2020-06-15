@@ -3,13 +3,12 @@ PanSliders.oninput = PanChanger;
 function PanChanger(e) {
   let fontElements = document.querySelectorAll("div.Pan p");
   fontElements.forEach(function (fontElement) {
-    console.log(fontElement);
     fontElement.style.cssText =
       "font-variation-settings:" +
       "'wght' " +
       document.querySelector("#Panwght").value +
       ",'ANGL' " +
-      document.getElementById("PanANGL").value +
+      document.querySelector("#PanANGL").value +
       ",'STEP' " +
       document.querySelector("#PanSTEP").value;
   });
