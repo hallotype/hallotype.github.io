@@ -11,7 +11,7 @@ viewslineswitch.addEventListener("change", (event) => {
     item.classList.remove("invisible");
   });
   gridviews.forEach(function (item) {
-    // item.classList.add("invisible");
+    item.classList.add("invisible");
     item.classList.remove("visible_grid");
   });
   fontItems.forEach(function (item) {
