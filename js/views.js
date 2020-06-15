@@ -14,10 +14,10 @@ viewslineswitch.addEventListener("change", (event) => {
     item.classList.add("invisible");
     item.classList.remove("visible_grid");
   });
-  // fontItems.forEach(function (item) {
-  //   item.classList.add("lineView");
-  //   item.classList.remove("gridView");
-  // });
+  fontItems.forEach(function (item) {
+    item.classList.add("lineView");
+    //   item.classList.remove("gridView");
+  });
 });
 
 viewsgridswitch.addEventListener("change", (event) => {
@@ -31,8 +31,8 @@ viewsgridswitch.addEventListener("change", (event) => {
     item.classList.add("invisible");
     item.classList.remove("visible_line");
   });
-  // fontItems.forEach(function (item) {
-  //   item.classList.add("gridView");
-  //   item.classList.remove("lineView");
-  // });
+  fontItems.forEach(function (item) {
+    item.classList.add("gridView");
+    //   item.classList.remove("lineView");
+  });
 });
