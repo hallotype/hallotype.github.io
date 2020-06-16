@@ -5,11 +5,12 @@ function PanChanger(e) {
   fontElements.forEach(function (fontElement) {
     fontElement.style.cssText =
       "font-variation-settings:" +
-      ",'ANGL' " +
+      "'ANGL' " +
       document.querySelector("#PanANGL").value +
       ",'STEP' " +
-      document.querySelector("#PanSTEP").value;
-    +"'wght' " + document.querySelector("#Panwght").value;
+      document.querySelector("#PanSTEP").value +
+      ",'wght' " +
+      document.querySelector("#Panwght").value;
   });
 }
 const bexSliders = document.querySelector("#sliders-bex");
