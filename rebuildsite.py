@@ -7,12 +7,18 @@ from os.path import basename
 from getAxes import getAxes
 from checkCharSets import checkCharSets
 
+pw = open("fonts/preferredWords.py", "r")
+pwContent = pw.read()
+preferredWords = eval(pwContent)
+pw.close()
+# print(preferredWords)
+
+
 # process the fonts
 os.system("sh processFonts.sh")
 fontsAxes = getAxes()
 charSets = checkCharSets()
 
-# print(fontsAxes)
 
 """
 look into BASE64 folder
@@ -45,10 +51,10 @@ AtFontFace = u"""
 """
 
 lineViewTemplate = """
-<p contenteditable="true" class="lineView">OHamburgefonstiv</p>
+<p contenteditable="true" class="lineView">%s</p>
 """
 gridViewTemplate = """
-<p contenteditable="true" class="gridView invisible">A</p>
+<p contenteditable="true" class="gridView invisible">%s</p>
 """
 
 
@@ -91,15 +97,25 @@ for font in glob.glob(fontFolder+"**"):
 
     fontItem = "<div class='fontItem lineView {fontname}{extraClasses}'>".format(
         fontname=fontname, extraClasses=extraClasses)
-    fontItem += lineViewTemplate
-    fontItem += gridViewTemplate
+
+    lineContent = "OHamburgefonstiv"
+    gridContent = "A"
+
+    if fontname in preferredWords:
+        if 'line' in preferredWords[fontname]:
+            lineContent = preferredWords[fontname]['line']
+        if 'grid' in preferredWords[fontname]:
+            gridContent = preferredWords[fontname]['grid']
+
+    fontItem += lineViewTemplate % lineContent
+    fontItem += gridViewTemplate % gridContent
 
     if fontname in fontsAxes:
         varSup = "<div class='varSup' id='sliders-" + fontname + "'>"
         slidersScript += sliderTemplate.format(fontname=fontname)
         slidersScript = slidersScript.replace("[", "{").replace("]", "}")
         for i, ax in enumerate(fontsAxes[fontname]):
-            varSup += "<input type='range' class='ax' min='%s' max='%s' value='%s' id=%s%s>%s " % (
+            varSup += "<input type='range' class='ax' min='%s' max='%s' value='%s' id='%s%s'>%s " % (
                 ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag']
             )
             if i == 0:
