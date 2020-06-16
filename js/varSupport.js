@@ -1,4 +1,3 @@
-
 const PanSliders = document.querySelector("#sliders-Pan");
 PanSliders.oninput = PanChanger;
 function PanChanger(e) {
@@ -6,10 +5,14 @@ function PanChanger(e) {
   fontElements.forEach(function (fontElement) {
     fontElement.style.cssText =
       "font-variation-settings:" +
-"'wght' " + document.querySelector("#Panwght").value
-+",'ANGL' " + document.querySelector("#PanANGL").value
-+",'STEP' " + document.querySelector("#PanSTEP").value
-  });}
+      "'wght' " +
+      document.querySelector("#Panwght").value +
+      ",'ANGL' " +
+      document.querySelector("#PanANGL").value +
+      ",'STEP' " +
+      document.querySelector("#PanSTEP").value;
+  });
+}
 const bexSliders = document.querySelector("#sliders-bex");
 bexSliders.oninput = bexChanger;
 function bexChanger(e) {
@@ -17,8 +20,10 @@ function bexChanger(e) {
   fontElements.forEach(function (fontElement) {
     fontElement.style.cssText =
       "font-variation-settings:" +
-"'wght' " + document.querySelector("#bexwght").value
-  });}
+      "'wght' " +
+      document.querySelector("#bexwght").value;
+  });
+}
 const BexTiltSliders = document.querySelector("#sliders-BexTilt");
 BexTiltSliders.oninput = BexTiltChanger;
 function BexTiltChanger(e) {
@@ -26,5 +31,7 @@ function BexTiltChanger(e) {
   fontElements.forEach(function (fontElement) {
     fontElement.style.cssText =
       "font-variation-settings:" +
-"'ital' " + document.querySelector("#BexTiltital").value
-  });}
+      "'ital' " +
+      document.querySelector("#BexTiltital").value;
+  });
+}
