@@ -63,7 +63,7 @@ sliderTemplate = """
 const {fontname}Sliders = document.querySelector("#sliders-{fontname}");
 {fontname}Sliders.oninput = {fontname}Changer;
 function {fontname}Changer(e) [
-  let fontElements = document.querySelectorAll("div.{fontname} p");
+  let fontElements = document.querySelectorAll("div.{fontname}");
   fontElements.forEach(function (fontElement) [
     fontElement.style.cssText =
       "font-variation-settings:" +
