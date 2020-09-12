@@ -4,6 +4,10 @@ from fontTools.ttLib import TTFont
 
 
 def getAxes():
+    """
+    returns a dict of all ttfs
+    {tag, min, def, max}
+    """
     fonts = {}
     for ttf in glob.glob("fonts/**.ttf"):
         ftf = TTFont(ttf)
