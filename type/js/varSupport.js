@@ -19,6 +19,17 @@ function bexChanger(e) {
       "font-variation-settings:" +
 "'wght' " + document.querySelector("#bexwght").value
   });}
+const bitmapSliders = document.querySelector("#sliders-bitmap");
+bitmapSliders.oninput = bitmapChanger;
+function bitmapChanger(e) {
+  let fontElements = document.querySelectorAll("div.bitmap");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'PIXL' " + document.querySelector("#bitmapPIXL").value
++",'PROP' " + document.querySelector("#bitmapPROP").value
++",'slnt' " + document.querySelector("#bitmapslnt").value
+  });}
 const waaveSliders = document.querySelector("#sliders-waave");
 waaveSliders.oninput = waaveChanger;
 function waaveChanger(e) {

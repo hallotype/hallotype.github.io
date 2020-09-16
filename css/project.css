@@ -22,3 +22,13 @@
 
 }
 
+img {
+	max-width: 900px;
+}
+
+
+.description {
+	margin: 24px 0px;
+	line-height: 120%;	
+	width: 800px;
+}

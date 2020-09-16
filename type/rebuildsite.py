@@ -18,6 +18,7 @@ pw.close()
 os.system("sh processFonts.sh")
 fontsAxes = getAxes()
 charSets = checkCharSets()
+print(charSets)
 
 
 """

@@ -16,6 +16,7 @@ def generateProjectPage(project):
 	content = ""
 	if project['content']:
 		for img in project['content']:
+			print(img)
 			content += """<img src='%s/%s'/>"""%(project['path'],img)
 	projHtml = projHtml.format(
 					title = project['texts'].title,

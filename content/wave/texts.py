@@ -10,4 +10,4 @@ from collections import OrderedDict
 sd = OrderedDict()
 sitecontent = OrderedDict()
 sitecontent["img01.png"] = "some text"
-sitecontent["ttt.png"] = "some text"
+sitecontent["water.gif"] = "some text"
