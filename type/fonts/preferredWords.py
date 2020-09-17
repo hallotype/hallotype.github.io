@@ -7,5 +7,5 @@
                       'grid': "R"},
     "BexTilt": {'line': 'springlocks', 'grid': 'p'},
     "trees": {'line': 'HORTUS BOTANICUS'},
-    "bitmap": {'line': 'ZX SPECTRUM','grid': 'R'}
+    "Piksels": {'line': 'ZX SPECTRUM','grid': 'R'}
 }

@@ -9,9 +9,9 @@ def checkCharSets():
         ftf = TTFont(font)
         fontname = os.path.basename(font)[:-4]
         glyphs = ftf['cmap'].buildReversed()
-        if "a" not in glyphs:
+        if "a" not in glyphs and 'uni0061' not in glyphs:
             charsets[fontname] = ['noLowercase']
-        if "A" not in glyphs:
+        if "A" not in glyphs and 'uni0041' not in glyphs:
             if fontname in charsets:
                 charsets[fontname].append("noUppercase")
             else:

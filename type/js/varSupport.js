@@ -19,16 +19,18 @@ function bexChanger(e) {
       "font-variation-settings:" +
 "'wght' " + document.querySelector("#bexwght").value
   });}
-const bitmapSliders = document.querySelector("#sliders-bitmap");
-bitmapSliders.oninput = bitmapChanger;
-function bitmapChanger(e) {
-  let fontElements = document.querySelectorAll("div.bitmap");
+const PikselsSliders = document.querySelector("#sliders-Piksels");
+PikselsSliders.oninput = PikselsChanger;
+function PikselsChanger(e) {
+  let fontElements = document.querySelectorAll("div.Piksels");
   fontElements.forEach(function (fontElement) {
     fontElement.style.cssText =
       "font-variation-settings:" +
-"'PIXL' " + document.querySelector("#bitmapPIXL").value
-+",'PROP' " + document.querySelector("#bitmapPROP").value
-+",'slnt' " + document.querySelector("#bitmapslnt").value
+"'PIXL' " + document.querySelector("#PikselsPIXL").value
++",'CHAR' " + document.querySelector("#PikselsCHAR").value
++",'PROP' " + document.querySelector("#PikselsPROP").value
++",'slnt' " + document.querySelector("#Pikselsslnt").value
++",'ROTA' " + document.querySelector("#PikselsROTA").value
   });}
 const waaveSliders = document.querySelector("#sliders-waave");
 waaveSliders.oninput = waaveChanger;

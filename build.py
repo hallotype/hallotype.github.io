@@ -8,16 +8,22 @@ import random
 # gen proj page
 def generateProjectPage(project):
 	print(project['path'])
-	# print(dir(project['texts']))
+	print((project['texts'].description))
 	
 	link = project['texts'].title.replace(" ","") + ".html"
 	proj = open(link, 'w+')
 	projHtml = str(projHtmlTemp)
 	content = ""
 	if project['content']:
-		for img in project['content']:
-			print(img)
-			content += """<img src='%s/%s'/>"""%(project['path'],img)
+		for index, img in enumerate(project['content']):
+			# first image
+			content += """<img src='%s/%s'/>\n"""%(project['path'],img)
+			# then description
+			if index == 0 and project['texts'].description:
+				content += """<p class="description">%s</p>\n""" % project['texts'].description
+			# then more images
+			# then more images
+
 	projHtml = projHtml.format(
 					title = project['texts'].title,
 					header = headerFileTxt,
