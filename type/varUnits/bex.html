@@ -1,0 +1,16 @@
+<link rel='stylesheet' href='type/css/bex.css'/>
+<div class='bex' id='varUnit'>
+
+<p contenteditable="true" class="lineView">OHamburgefonstiv</p>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-bex'><input type='range' class='ax' min='0.0' max='1000.0' value='0.0' id='bexwght'>weight<br></div>
+<script>
+const bexSliders = document.querySelector("#sliders-bex");
+bexSliders.oninput = bexChanger;
+function bexChanger(e) {
+  let fontElements = document.querySelectorAll("div.bex");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'wght' " + document.querySelector("#bexwght").value
+  });}</script>
+</div>

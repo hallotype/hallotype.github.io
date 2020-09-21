@@ -32,3 +32,12 @@ img {
 	line-height: 120%;	
 	width: 800px;
 }
+
+.description a {
+	background-color: #ff003316;
+
+}
+.description a:hover {
+	background-color: #ff0033;
+
+}

@@ -1,8 +1,8 @@
 <link rel='stylesheet' href='type/css/Piksels.css'/>
-<div class='Piksels noLowercase'>
+<div class='Piksels noLowercase' id='varUnit'>
 
 <p contenteditable="true" class="lineView">ZX SPECTRUM</p>
-<div class='varSup' id='sliders-Piksels'><input type='range' class='ax' min='0.0' max='800.0' value='0.0' id='PikselsPIXL'>PIXL <input type='range' class='ax' min='0.0' max='6.0' value='0.0' id='PikselsCHAR'>CHAR <input type='range' class='ax' min='50.0' max='100.0' value='100.0' id='PikselsPROP'>PROP <input type='range' class='ax' min='-50.0' max='50.0' value='0.0' id='Pikselsslnt'>slnt <input type='range' class='ax' min='0.0' max='360.0' value='0.0' id='PikselsROTA'>ROTA </div>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-Piksels'><input type='range' class='ax' min='0.0' max='700.0' value='0.0' id='PikselsPIXL'>Pixel<br><input type='range' class='ax' min='1.0' max='7.0' value='1.0' id='PikselsCHAR'>Character Set<br><input type='range' class='ax' min='50.0' max='150.0' value='100.0' id='PikselsPROP'>Proportion<br><input type='range' class='ax' min='-50.0' max='50.0' value='0.0' id='Pikselsslnt'>Slant<br><input type='range' class='ax' min='0.0' max='360.0' value='0.0' id='PikselsROTA'>Rotate<br></div>
 <script>
 const PikselsSliders = document.querySelector("#sliders-Piksels");
 PikselsSliders.oninput = PikselsChanger;

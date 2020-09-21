@@ -172,7 +172,9 @@ div.gridView {
     font-size: 144px;
     line-height: 200px;
   }
-  .varSup {
-    /* padding-bottom: 36px; */
+  div.varSup {
+    text-transform: capitalize;
+    color: red;
+    font-family: "Times";
   }
 }

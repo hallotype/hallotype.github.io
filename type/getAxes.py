@@ -22,6 +22,7 @@ def getAxes():
                 a['min'] = axis.minValue
                 a['def'] = axis.defaultValue
                 a['max'] = axis.maxValue
+                a['name'] = ftf['name'].getDebugName(axis.axisNameID)
                 axes.append(a)
         if axes:
             fonts[fontname] = axes

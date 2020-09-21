@@ -60,6 +60,7 @@ gridViewTemplate = """
 
 
 slidersScript = ""
+slidersScript_all = ""
 sliderTemplate = """
 const {fontname}Sliders = document.querySelector("#sliders-{fontname}");
 {fontname}Sliders.oninput = {fontname}Changer;
@@ -110,14 +111,15 @@ for font in glob.glob(fontFolder+"**"):
 
     fontItem += lineViewTemplate % lineContent
     fontItem += gridViewTemplate % gridContent
-
+    varSup = ""
+    slidersScript = ""
     if fontname in fontsAxes:
-        varSup = "<div class='varSup' id='sliders-" + fontname + "'>"
-        slidersScript += sliderTemplate.format(fontname=fontname)
+        varSup = "<div class='varSup' style='text-transform: capitalize;' id='sliders-" + fontname + "'>"
+        slidersScript = sliderTemplate.format(fontname=fontname)
         slidersScript = slidersScript.replace("[", "{").replace("]", "}")
         for i, ax in enumerate(fontsAxes[fontname]):
-            varSup += "<input type='range' class='ax' min='%s' max='%s' value='%s' id='%s%s'>%s " % (
-                ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['tag']
+            varSup += "<input type='range' class='ax' min='%s' max='%s' value='%s' id='%s%s'>%s<br>" % (
+                ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['name']
             )
             if i == 0:
                 slidersScript += '''"'%s' " + document.querySelector("#%s%s").value\n''' % (
@@ -136,6 +138,20 @@ for font in glob.glob(fontFolder+"**"):
     fontcssFile.close()
 
     fontcsses += templateCss % fontname
+
+    slidersScript_all += slidersScript
+
+
+    vu = open('varUnits/%s.html' % fontname, "w+")
+    c = "<link rel='stylesheet' href='type/css/%s.css'/>\n"% fontname 
+    c+= "<div class='{fontname}{extraClasses}' id='varUnit'>\n".format(
+        fontname=fontname, extraClasses=extraClasses)
+    c+= lineViewTemplate % lineContent
+    c+= varSup
+    c+= "\n<script>%s</script>\n" % slidersScript
+    c+= "</div>\n"
+    vu.write(c)
+    vu.close()
 
 htmlFile = open("templateindex.html", "r")
 htmlFileTxt = htmlFile.read()
@@ -156,5 +172,5 @@ htmlIndex.write(htmlFileTxt.format(fontcsses=fontcsses,
 htmlIndex.close()
 
 slidersScriptFile = open("js/varSupport.js", "w+")
-slidersScriptFile.write(slidersScript)
+slidersScriptFile.write(slidersScript_all)
 slidersScriptFile.close()

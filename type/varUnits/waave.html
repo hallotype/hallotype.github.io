@@ -1,0 +1,18 @@
+<link rel='stylesheet' href='type/css/waave.css'/>
+<div class='waave noLowercase' id='varUnit'>
+
+<p contenteditable="true" class="lineView">OHamburgefonstiv</p>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-waave'><input type='range' class='ax' min='100.0' max='700.0' value='400.0' id='waaveLMBD'>WaveLength<br><input type='range' class='ax' min='0.0' max='40.0' value='40.0' id='waaveAMPL'>Amplitude<br><input type='range' class='ax' min='0.0' max='10.0' value='0.0' id='waaveSHFT'>Shift<br></div>
+<script>
+const waaveSliders = document.querySelector("#sliders-waave");
+waaveSliders.oninput = waaveChanger;
+function waaveChanger(e) {
+  let fontElements = document.querySelectorAll("div.waave");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'LMBD' " + document.querySelector("#waaveLMBD").value
++",'AMPL' " + document.querySelector("#waaveAMPL").value
++",'SHFT' " + document.querySelector("#waaveSHFT").value
+  });}</script>
+</div>

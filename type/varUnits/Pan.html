@@ -1,0 +1,18 @@
+<link rel='stylesheet' href='type/css/Pan.css'/>
+<div class='Pan noLowercase' id='varUnit'>
+
+<p contenteditable="true" class="lineView">OHamburgefonstiv</p>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-Pan'><input type='range' class='ax' min='0.0' max='30.0' value='20.0' id='Panwght'>Weight<br><input type='range' class='ax' min='0.0' max='360.0' value='180.0' id='PanANGL'>Angle<br><input type='range' class='ax' min='10.0' max='60.0' value='20.0' id='PanSTEP'>Steps<br></div>
+<script>
+const PanSliders = document.querySelector("#sliders-Pan");
+PanSliders.oninput = PanChanger;
+function PanChanger(e) {
+  let fontElements = document.querySelectorAll("div.Pan");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'wght' " + document.querySelector("#Panwght").value
++",'ANGL' " + document.querySelector("#PanANGL").value
++",'STEP' " + document.querySelector("#PanSTEP").value
+  });}</script>
+</div>
