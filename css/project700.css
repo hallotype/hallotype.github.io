@@ -1,16 +1,19 @@
+@media only screen and (max-width: 700px) {
+
 .project {
-	
+	margin-bottom: 36px;
 
 }
 
 .cover {
 	float: left;
 	margin-right: 24px;
-	margin-bottom: 48px;
+	margin-bottom: 12px;
 }
 
 .cover img {
 	width:550px;
+	max-width: 90vw;
 }
 
 .title {
@@ -23,21 +26,49 @@
 }
 
 img {
-	max-width: 550px;
+	max-width: 90vw;
 }
 
 
 .description {
 	margin: 24px 0px;
 	line-height: 120%;	
-	width: 550px;
+	width: 90vw;
 }
+.desctop {
+	max-width: 82vw;
+	padding: 16px;
+	border-right: 4px solid #FF1933;
+	border-left: 4px solid #FF1933;
+	border-top: 4px solid #FF1933;
+	margin-bottom: -0px;
 
+}
 .description a {
 	background-color: #ff003316;
 
 }
 .description a:hover {
 	/*background-color: #ff0033;*/
+}
+#varUnit {
+  font-size: 72px;
+  background-color: #66E5CC;
+  max-width: 90vw;
+  text-align: center;
+  padding-top: 36px;
+}
 
+.varSup {
+  margin-top: 24px;
+  font-family: "Source Code Pro", monospace;
+  font-size: 16px;
+  background-color: #FFFFFF;
+
+  border: 4mm solid #66E5CC;
+  text-align: left;
+}
+input {
+  min-width: 200px;
+}
 }

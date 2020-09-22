@@ -1,3 +1,4 @@
+finished = True
 title = 'golf'
 
 tags = '''type
