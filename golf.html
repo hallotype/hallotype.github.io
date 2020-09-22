@@ -3,74 +3,165 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <title>golf</title>
-    
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/project.css" />
 
     <link rel="stylesheet" href="css/main700.css" />
     <link rel="stylesheet" href="css/project700.css" />
-    
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;600&display=swap" rel="stylesheet">
 
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    
     <div id="tagline">
-	<p> 
-		<br>&gt; <b><a href="https://hallotype.github.io/">HalloType</a></b> = Thom Janssen = font maker, type engineer, programmer, creative coder <a href="./type/fonts.html"><span class="typelink"> > typefaces&nbsp;&nbsp;&nbsp;</span></a>
+      <p>
+        <br />&gt; <b><a href="https://hallotype.github.io/">HalloType</a></b> =
+        Thom Janssen = font maker, type engineer, programmer, creative coder
+        <a href="./type/fonts.html"
+          ><span class="typelink"> > typefaces&nbsp;&nbsp;&nbsp;</span></a
+        >
+      </p>
+    </div>
 
-	</p>
+    <div id="gohere">
+      ↑↑↑
+      <br />
+      go here!
+    </div>
+
+    <div id="construction">
+      <br />
+      &nbsp;← still<br />
+      &nbsp;← under<br />
+      &nbsp;↙︎ construction<br />
+      &nbsp;↙︎
+    </div>
+
+    <div id="main">
+      <img src="content/wave/cover.gif" />
+      <p class="description">
+        This is a fine example where variable fonts and animation go hand in
+        hand.<br />
+        The phase of a wave repeats over and over to create a smooth animation.
+        Other parameters in this design are the amplitute, wave-length, speed,
+        and direction. <br /><br />
+
+        I wrote a tool to create this font out of a normal font. To declare the
+        extreme for the amplitude, and all the wave-lengths, the wave-font is
+        generated.<br />
+      </p>
+
+      <link rel="stylesheet" href="type/css/waave.css" />
+      <div class="waave noLowercase" id="varUnit">
+        <p contenteditable="true" class="lineView">CREATE SOME WAVES</p>
+        <div
+          class="varSup"
+          style="text-transform: capitalize"
+          id="sliders-waave"
+        >
+      <input
+        type="checkbox"
+        id="phaseDirection"
+      /> Direction<br>
+                <input
+        type="range"
+        min="0"
+        max="100"
+        value="20"
+        class="slider"
+        id="speed"
+      /> Speed<br>
+      <!-- <input
+        type="checkbox"
+        id="autoPhase"
+        checked=true
+      />Auto-Phase<br> -->
+      
+      <input
+        type="range"
+        min="50"
+        max="700"
+        value="200"
+        class="slider"
+        id="waveLength"
+      /> Wave length<br>
+      <input
+        type="range"
+        min="0"
+        max="40"
+        value="20"
+        class="slider"
+        id="amplitude"
+      /> Amplitude<br>
+
+      <input
+        type="range"
+        min="0"
+        max="10"
+        value="0"
+        class="slider"
+        id="phase"
+        disabled
+      /> Phase
+
+        </div>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        <script>
+    const speed = document.getElementById("speed");
+    // const autoPhase = document.getElementById("autoPhase");
+    const phaseDirection = document.getElementById("phaseDirection");
+    const waveLength = document.getElementById("waveLength");
+    const amplitude = document.getElementById("amplitude");
+    const phase = document.getElementById("phase");
 
 
-</div>
+    $value = 0;
+
+    var tid = setTimeout(myFunction, 0);
+    function myFunction() {
+
+      setTimeout(myFunction, 20);
+      timer = speed.value;
+      // console.log($timer);
 
 
-<div id="gohere">
-	↑↑↑
-	<br/>
-	go here!
-</div>
 
-<div id="construction">
-	<br/>
-&nbsp;← still<br/>
-&nbsp;← under<br/>
-&nbsp;↙︎ construction<br/>
-&nbsp;↙︎
+      if (phaseDirection.checked)
+      {
+        
+        $value +=  Number(timer);
+        if($value>1000) { $value=0;}
+      }else 
+     { 
+       $value = $value - timer;
+       if($value<0) { $value=1000; }
+     }
+      
+      phase.value = $value/100;
+    
+      // console.log($value);
+      $.each (['.lineView'], function (i, c) 
+      {
+        if(c==".lineView") 
+        {
+          var settings = "'SHFT' " + $value/100 + " , 'AMPL' " + amplitude.value + " , 'LMBD' " + waveLength.value;
+          $(c).css ('font-variation-settings', settings);
+        }
+      
+      }
+      )
+      
+    }
 
-</div>
-
-
-    <div id='main'>
-      <img src='content/wave/cover.gif'/>
-<p class="description">This is a fine example where variable fonts and animation go hand in hand.<br>
-The phase of a wave repeats over and over to create a smooth animation. Other parameters in this design are the amplitute, wave-length, speed, and direction. <br><br>
-
-I wrote a tool to create this font out of a normal font. To declare the extreme for the amplitude, and all the wave-lengths, the wave-font is generated.<br> </p>
-
-      <link rel='stylesheet' href='type/css/waave.css'/>
-<div class='waave noLowercase' id='varUnit'>
-
-<p contenteditable="true" class="lineView">CREATE SOME WAVES</p>
-<div class='varSup' style='text-transform: capitalize;' id='sliders-waave'><input type='range' class='ax' min='100.0' max='700.0' value='400.0' id='waaveLMBD'>WaveLength<br><input type='range' class='ax' min='0.0' max='40.0' value='40.0' id='waaveAMPL'>Amplitude<br><input type='range' class='ax' min='0.0' max='10.0' value='0.0' id='waaveSHFT'>Shift<br></div>
-<script>
-const waaveSliders = document.querySelector("#sliders-waave");
-waaveSliders.oninput = waaveChanger;
-function waaveChanger(e) {
-  let fontElements = document.querySelectorAll("div.waave");
-  fontElements.forEach(function (fontElement) {
-    fontElement.style.cssText =
-      "font-variation-settings:" +
-"'LMBD' " + document.querySelector("#waaveLMBD").value
-+",'AMPL' " + document.querySelector("#waaveAMPL").value
-+",'SHFT' " + document.querySelector("#waaveSHFT").value
-  });}</script>
-</div>
-
+        </script>
+      </div>
     </div>
   </body>
 </html>
