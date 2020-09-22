@@ -1,3 +1,5 @@
+finished = True
+
 title = 'piksels'
 
 tags = '''type
@@ -17,5 +19,4 @@ sitecontent["DK2.gif"] = "some text"
 sitecontent["CASTLE.gif"] = "some text"
 # varUnit
 sitecontent["fontOverview.png"] = "some text"
-
-
+sitecontent["MARIO.png"] = "some text"

@@ -80,7 +80,7 @@ for index, o in enumerate(order):
 			"content": content,
 		}
 
-		generateProjectPage(project)
+		if not hasattr(projectTexts, "finished"): generateProjectPage(project)
 
 
 

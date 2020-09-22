@@ -10,7 +10,7 @@
 }
 
 .cover img {
-	width:600px;
+	width:550px;
 }
 
 .title {
@@ -23,25 +23,14 @@
 }
 
 img {
-	max-width: 900px;
+	max-width: 550px;
 }
 
 
 .description {
 	margin: 24px 0px;
 	line-height: 120%;	
-	width: 800px;
-}
-
-.desctop {
-	width: 900px;
-	max-width: 860px;
-	padding: 16px;
-	border-right: 4px solid #FF1933;
-	border-left: 4px solid #FF1933;
-	border-top: 4px solid #FF1933;
-	margin-bottom: -0px;
-
+	width: 550px;
 }
 
 .description a {
