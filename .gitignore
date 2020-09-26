@@ -1,10 +1,10 @@
 .DS_Store
-compiledFonts/
+*compiledFonts/
 *.otf
 *.ttf
 *.b64
 *.pyc
-test.py
-park/
-.vscode*
+*test.py
+*park/
+*.vscode*
 _*
