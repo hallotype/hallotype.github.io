@@ -64,7 +64,8 @@
           style="text-transform: capitalize"
           id="sliders-waave"
         >
-          <input type="checkbox" id="phaseDirection" /> Direction<br />
+          <input type="checkbox" id="phaseDirection" name="phaseDirection"/> 
+          <label for="phaseDirection">Direction</label><br />
           <input
             type="range"
             min="0"
@@ -72,8 +73,9 @@
             value="20"
             class="slider"
             id="speed"
+            name="speed"
           />
-          Speed<br />
+          <label for="speed">Speed</label><br />
           <!-- <input
         type="checkbox"
         id="autoPhase"
@@ -87,8 +89,9 @@
             value="200"
             class="slider"
             id="waveLength"
+            name='waveLength'
           />
-          Wave length<br />
+          <label for="waveLength">Wave Length</label><br />
           <input
             type="range"
             min="0"
@@ -96,8 +99,9 @@
             value="20"
             class="slider"
             id="amplitude"
+            name='amplitude'
           />
-          Amplitude<br />
+          <label for="amplitude">Amplitude</label><br />
 
           <input
             type="range"
@@ -107,8 +111,9 @@
             class="slider"
             id="phase"
             disabled
+            name='phase'
           />
-          Phase
+          <label for=phase>Phase</label><br />
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
