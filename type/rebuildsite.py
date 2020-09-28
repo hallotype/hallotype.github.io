@@ -118,15 +118,22 @@ for font in glob.glob(fontFolder+"**"):
         slidersScript = sliderTemplate.format(fontname=fontname)
         slidersScript = slidersScript.replace("[", "{").replace("]", "}")
         for i, ax in enumerate(fontsAxes[fontname]):
-            varSup += "<input type='range' class='ax' min='%s' max='%s' value='%s' id='%s%s'>%s<br>" % (
-                ax['min'], ax['max'], ax['def'], fontname, ax['tag'],  ax['name']
+
+            varSup += """<input type='range' class='ax' min='{min}' max='{max}' value='{default}' name='{fontname}{tag}' id='{fontname}{tag}'><label for='{fontname}{tag}'>{tag}</label><br>""".format(
+                min=ax['min'],
+                max=ax['max'],
+                default=ax['def'],
+                fontname=fontname,
+                tag=ax['tag']
+
             )
+
             if i == 0:
-                slidersScript += '''"'%s' " + document.querySelector("#%s%s").value\n''' % (
-                    ax['tag'], fontname, ax['tag'])
+                slidersScript += '''"'{tag}' " + document.querySelector("#{fontname}{tag}").value\n'''.format(
+                    tag=ax['tag'], fontname=fontname)
             else:
-                slidersScript += '''+",'%s' " + document.querySelector("#%s%s").value\n''' % (
-                    ax['tag'], fontname, ax['tag'])
+                slidersScript += '''+",'{tag}' " + document.querySelector("#{fontname}{tag}").value\n'''.format(
+                    tag=ax['tag'], fontname=fontname)
         slidersScript += "  });}"
         varSup += "</div>"
         fontItem += varSup
@@ -141,15 +148,14 @@ for font in glob.glob(fontFolder+"**"):
 
     slidersScript_all += slidersScript
 
-
     vu = open('varUnits/%s.html' % fontname, "w+")
-    c = "<link rel='stylesheet' href='type/css/%s.css'/>\n"% fontname 
-    c+= "<div class='{fontname}{extraClasses}' id='varUnit'>\n".format(
+    c = "<link rel='stylesheet' href='type/css/%s.css'/>\n" % fontname
+    c += "<div class='{fontname}{extraClasses}' id='varUnit'>\n".format(
         fontname=fontname, extraClasses=extraClasses)
-    c+= lineViewTemplate % lineContent
-    c+= varSup
-    c+= "\n<script>%s</script>\n" % slidersScript
-    c+= "</div>\n"
+    c += lineViewTemplate % lineContent
+    c += varSup
+    c += "\n<script>%s</script>\n" % slidersScript
+    c += "</div>\n"
     vu.write(c)
     vu.close()
 
