@@ -1,3 +1,7 @@
+:root {
+  --max-width: 92vw;
+}
+
 @media only screen and (max-width: 700px) {
 
 .clear {
@@ -18,13 +22,15 @@ html {
 }
 
 #main {
-  margin-left: 5vw;
+  margin-left: 4vw;
 }
 
 b {
   font-weight: 600;
 }
-
+img {
+  width: var(--max-width);
+}
 #tagline {
   background-color: #ff0020;
   padding-bottom: 40px;

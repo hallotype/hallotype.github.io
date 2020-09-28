@@ -119,12 +119,13 @@ for font in glob.glob(fontFolder+"**"):
         slidersScript = slidersScript.replace("[", "{").replace("]", "}")
         for i, ax in enumerate(fontsAxes[fontname]):
 
-            varSup += """<input type='range' class='ax' min='{min}' max='{max}' value='{default}' name='{fontname}{tag}' id='{fontname}{tag}'><label for='{fontname}{tag}'>{tag}</label><br>""".format(
+            varSup += """<input type='range' class='ax' min='{min}' max='{max}' value='{default}' name='{fontname}{tag}' id='{fontname}{tag}'><label for='{fontname}{tag}'>{name}</label><br>""".format(
                 min=ax['min'],
                 max=ax['max'],
                 default=ax['def'],
                 fontname=fontname,
-                tag=ax['tag']
+                tag=ax['tag'],
+                name=ax['name']
 
             )
 

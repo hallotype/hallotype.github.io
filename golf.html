@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/project.css" />
-
     <link rel="stylesheet" href="css/main700.css" />
     <link rel="stylesheet" href="css/project700.css" />
 
@@ -65,101 +64,98 @@
           style="text-transform: capitalize"
           id="sliders-waave"
         >
-      <input
-        type="checkbox"
-        id="phaseDirection"
-      /> Direction<br>
-                <input
-        type="range"
-        min="0"
-        max="100"
-        value="20"
-        class="slider"
-        id="speed"
-      /> Speed<br>
-      <!-- <input
+          <input type="checkbox" id="phaseDirection" /> Direction<br />
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="20"
+            class="slider"
+            id="speed"
+          />
+          Speed<br />
+          <!-- <input
         type="checkbox"
         id="autoPhase"
         checked=true
       />Auto-Phase<br> -->
-      
-      <input
-        type="range"
-        min="50"
-        max="700"
-        value="200"
-        class="slider"
-        id="waveLength"
-      /> Wave length<br>
-      <input
-        type="range"
-        min="0"
-        max="40"
-        value="20"
-        class="slider"
-        id="amplitude"
-      /> Amplitude<br>
 
-      <input
-        type="range"
-        min="0"
-        max="10"
-        value="0"
-        class="slider"
-        id="phase"
-        disabled
-      /> Phase
+          <input
+            type="range"
+            min="50"
+            max="700"
+            value="200"
+            class="slider"
+            id="waveLength"
+          />
+          Wave length<br />
+          <input
+            type="range"
+            min="0"
+            max="40"
+            value="20"
+            class="slider"
+            id="amplitude"
+          />
+          Amplitude<br />
 
+          <input
+            type="range"
+            min="0"
+            max="10"
+            value="0"
+            class="slider"
+            id="phase"
+            disabled
+          />
+          Phase
         </div>
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
         <script>
-    const speed = document.getElementById("speed");
-    // const autoPhase = document.getElementById("autoPhase");
-    const phaseDirection = document.getElementById("phaseDirection");
-    const waveLength = document.getElementById("waveLength");
-    const amplitude = document.getElementById("amplitude");
-    const phase = document.getElementById("phase");
+          const speed = document.getElementById("speed");
+          // const autoPhase = document.getElementById("autoPhase");
+          const phaseDirection = document.getElementById("phaseDirection");
+          const waveLength = document.getElementById("waveLength");
+          const amplitude = document.getElementById("amplitude");
+          const phase = document.getElementById("phase");
 
+          $value = 0;
 
-    $value = 0;
+          var tid = setTimeout(myFunction, 0);
+          function myFunction() {
+            setTimeout(myFunction, 20);
+            timer = speed.value;
+            // console.log($timer);
 
-    var tid = setTimeout(myFunction, 0);
-    function myFunction() {
+            if (phaseDirection.checked) {
+              $value += Number(timer);
+              if ($value > 1000) {
+                $value = 0;
+              }
+            } else {
+              $value = $value - timer;
+              if ($value < 0) {
+                $value = 1000;
+              }
+            }
 
-      setTimeout(myFunction, 20);
-      timer = speed.value;
-      // console.log($timer);
+            phase.value = $value / 100;
 
-
-
-      if (phaseDirection.checked)
-      {
-        
-        $value +=  Number(timer);
-        if($value>1000) { $value=0;}
-      }else 
-     { 
-       $value = $value - timer;
-       if($value<0) { $value=1000; }
-     }
-      
-      phase.value = $value/100;
-    
-      // console.log($value);
-      $.each (['.lineView'], function (i, c) 
-      {
-        if(c==".lineView") 
-        {
-          var settings = "'SHFT' " + $value/100 + " , 'AMPL' " + amplitude.value + " , 'LMBD' " + waveLength.value;
-          $(c).css ('font-variation-settings', settings);
-        }
-      
-      }
-      )
-      
-    }
-
+            // console.log($value);
+            $.each([".lineView"], function (i, c) {
+              if (c == ".lineView") {
+                var settings =
+                  "'SHFT' " +
+                  $value / 100 +
+                  " , 'AMPL' " +
+                  amplitude.value +
+                  " , 'LMBD' " +
+                  waveLength.value;
+                $(c).css("font-variation-settings", settings);
+              }
+            });
+          }
         </script>
       </div>
     </div>

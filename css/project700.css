@@ -1,74 +1,73 @@
 @media only screen and (max-width: 700px) {
+  .project {
+    margin-bottom: 36px;
+  }
 
-.project {
-	margin-bottom: 36px;
+  .cover {
+    float: left;
+    margin-right: 24px;
+    margin-bottom: 12px;
+  }
 
-}
+  .cover img {
+    max-width: var(--max-width);
+  }
 
-.cover {
-	float: left;
-	margin-right: 24px;
-	margin-bottom: 12px;
-}
+  .title {
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
 
-.cover img {
-	width:550px;
-	max-width: 90vw;
-}
+  .tags {
+  }
 
-.title {
-	margin-bottom: 12px;
-	font-weight: 600;
-}
+  .description {
+    margin: 24px 0px;
+    line-height: 120%;
+    width: var(--max-width);
+  }
+  .desctop {
+    max-width: 82vw;
+    padding: 4vw;
+    border-right: 1vw solid #ff1933;
+    border-left: 1vw solid #ff1933;
+    border-top: 1vw solid #ff1933;
+    margin-bottom: -0px;
+  }
+  .description a {
+    background-color: #ff003316;
+  }
+  .description a:hover {
+    /*background-color: #ff0033;*/
+  }
+  #varUnit {
+    font-size: 72px;
+    background-color: #66e5cc;
+    max-width: var(--max-width);
+    text-align: center;
+    padding-top: 36px;
+  }
 
-.tags {
+  #varUnit p {
+    min-height: 200px;
+    max-height: 200px;
+  }
 
-}
+  .varSup {
+    margin-top: 24px;
+    font-family: "Source Code Pro", monospace;
+    font-size: 16px;
+    background-color: #ffffff;
 
-img {
-	max-width: 90vw;
-}
+    border: 12px solid #66e5cc;
+    text-align: left;
+    z-index: 2;
+  }
 
-
-.description {
-	margin: 24px 0px;
-	line-height: 120%;	
-	width: 90vw;
-}
-.desctop {
-	max-width: 82vw;
-	padding: 16px;
-	border-right: 4px solid #FF1933;
-	border-left: 4px solid #FF1933;
-	border-top: 4px solid #FF1933;
-	margin-bottom: -0px;
-
-}
-.description a {
-	background-color: #ff003316;
-
-}
-.description a:hover {
-	/*background-color: #ff0033;*/
-}
-#varUnit {
-  font-size: 72px;
-  background-color: #66E5CC;
-  max-width: 90vw;
-  text-align: center;
-  padding-top: 36px;
-}
-
-.varSup {
-  margin-top: 24px;
-  font-family: "Source Code Pro", monospace;
-  font-size: 16px;
-  background-color: #FFFFFF;
-
-  border: 4mm solid #66E5CC;
-  text-align: left;
-}
-input {
-  min-width: 200px;
-}
+  input {
+    min-width: 250px;
+  }
+  label {
+    display: block;
+  }
 }

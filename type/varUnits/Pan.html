@@ -2,7 +2,7 @@
 <div class='Pan noLowercase' id='varUnit'>
 
 <p contenteditable="true" class="lineView">OHamburgefonstiv</p>
-<div class='varSup' style='text-transform: capitalize;' id='sliders-Pan'><input type='range' class='ax' min='0.0' max='30.0' value='20.0' id='Panwght'>Weight<br><input type='range' class='ax' min='0.0' max='360.0' value='180.0' id='PanANGL'>Angle<br><input type='range' class='ax' min='10.0' max='60.0' value='20.0' id='PanSTEP'>Steps<br></div>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-Pan'><input type='range' class='ax' min='0.0' max='30.0' value='20.0' name='Panwght' id='Panwght'><label for='Panwght'>Weight</label><br><input type='range' class='ax' min='0.0' max='360.0' value='180.0' name='PanANGL' id='PanANGL'><label for='PanANGL'>Angle</label><br><input type='range' class='ax' min='10.0' max='60.0' value='20.0' name='PanSTEP' id='PanSTEP'><label for='PanSTEP'>Steps</label><br></div>
 <script>
 const PanSliders = document.querySelector("#sliders-Pan");
 PanSliders.oninput = PanChanger;

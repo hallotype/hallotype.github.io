@@ -2,7 +2,7 @@
 <div class='waave noLowercase' id='varUnit'>
 
 <p contenteditable="true" class="lineView">OHamburgefonstiv</p>
-<div class='varSup' style='text-transform: capitalize;' id='sliders-waave'><input type='range' class='ax' min='100.0' max='700.0' value='400.0' id='waaveLMBD'>WaveLength<br><input type='range' class='ax' min='0.0' max='40.0' value='40.0' id='waaveAMPL'>Amplitude<br><input type='range' class='ax' min='0.0' max='10.0' value='0.0' id='waaveSHFT'>Shift<br></div>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-waave'><input type='range' class='ax' min='100.0' max='700.0' value='400.0' name='waaveLMBD' id='waaveLMBD'><label for='waaveLMBD'>WaveLength</label><br><input type='range' class='ax' min='0.0' max='40.0' value='40.0' name='waaveAMPL' id='waaveAMPL'><label for='waaveAMPL'>Amplitude</label><br><input type='range' class='ax' min='0.0' max='10.0' value='0.0' name='waaveSHFT' id='waaveSHFT'><label for='waaveSHFT'>Shift</label><br></div>
 <script>
 const waaveSliders = document.querySelector("#sliders-waave");
 waaveSliders.oninput = waaveChanger;
