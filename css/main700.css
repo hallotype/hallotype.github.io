@@ -19,6 +19,9 @@
 html {
   font-family: "Source Code Pro", monospace;
   line-height: 2em;
+  overflow: hidden;
+  overflow-y: auto;
+
 }
 
 #main {
