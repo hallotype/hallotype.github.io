@@ -1,0 +1,65 @@
+<link rel='stylesheet' href='type/css/Pan_Clock.css'/>
+<div class='Pan_Clock noLowercasenoUppercase' id='varUnit' style="background-color: #FFC600; padding-bottom: 24px">
+
+<p style="font-size: 244px; font-variation-settings: 'wght' 30;" contenteditable="true" class="lineView"><span class="H">H</span>:<span class="M">M</span>:<span class="S">S</span><br></p><div></div>
+
+
+<script type="text/javascript">
+var wght = 30;		//
+	// https://codepen.io/jordantart/pen/QyJpyr
+	//
+	function clock_angles(hour, minute, second) {
+		var minAngle = 360*(minute/60);
+		var hourAngle = (360*(hour%12/12))+((360/12)*(minute/60));
+		var secAngle = 360*(second/60);
+		
+		return [hourAngle, minAngle, secAngle];
+}
+
+
+var d = new Date(); // for now
+//d.getHours(); // => 9
+//d.getMinutes(); // =>  30
+//d.getSeconds(); // => 51
+var t = clock_angles(d.getHours(), d.getMinutes(), d.getSeconds());
+console.log(t);
+console.log()
+const Pan_ClockSliders = document.querySelector("#sliders-Pan_Clock");
+
+
+var joopie = setTimeout(Pan_ClockChanger, 0);
+function Pan_ClockChanger() {
+	setTimeout(Pan_ClockChanger, 20);
+	var d = new Date(); // for now
+	var t = clock_angles(d.getHours(), d.getMinutes(), d.getSeconds());
+
+	let fontElementsH = document.querySelectorAll(".H");
+	fontElementsH.forEach(function (fontElement) {
+		fontElement.style.cssText =
+			"font-variation-settings:" +
+			"'wght' " + wght
+			+",'ANGL' " + t[0]
+			+",'STEP' " + 60
+		});
+
+	let fontElementsM = document.querySelectorAll(".M");
+	fontElementsM.forEach(function (fontElement) {
+		fontElement.style.cssText =
+			"font-variation-settings:" +
+			"'wght' " + wght
+			+",'ANGL' " + t[1]
+			+",'STEP' " + 60
+		});
+
+	let fontElementsS = document.querySelectorAll(".S");
+	fontElementsS.forEach(function (fontElement) {
+		fontElement.style.cssText =
+			"font-variation-settings:" +
+			"'wght' " + wght
+			+",'ANGL' " + t[2]
+			+",'STEP' " + 60
+		});
+}
+	
+</script>
+</div>

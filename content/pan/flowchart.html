@@ -1,0 +1,32 @@
+<p class=""><br><br>Here is a visualisation of my workflow. </p>
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.7.0/mermaid.min.js"></script>
+<div class="mermaid">
+%%{init: {'securityLevel': 'loose','theme': 'base', 'themeVariables': { 'fontFamily':'Source Code Pro',  'primaryColor': '#00CCCC', 'edgeLabelBackground':'#ffffee', 'tertiaryColor': '#fff0f0'}}}%%
+
+    graph TD;
+    PREF[Parameters and Settings];
+    SD[Slice Data]
+    DG[Draw Glyphs];
+    ADDUFO[Add to UFO];
+    OTFea[Generate OT Features];
+    DSD[Generate Desingnspace Document];
+    TTX1[Generate TTX FeatureVariations];
+    ComVarTT[Compile VarTT];
+    TTXextract[Extract GSUB table];
+    MergeTables[Merge GSUB tables];
+    ParseGSUB[Parse GSUB table];
+
+    PREF --> SD;
+    PREF --> DSD;
+    PREF --> TTX1;
+
+    SD --> DG --> ADDUFO --> OTFea;
+
+    DSD --> ComVarTT --> TTXextract --> MergeTables --> ParseGSUB;
+
+    TTX1 --> MergeTables;
+
+    ComVarTT --> ParseGSUB
+
+
+</div>

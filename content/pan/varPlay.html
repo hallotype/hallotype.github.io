@@ -1,0 +1,19 @@
+<link rel='stylesheet' href='type/css/panv2020.css'/>
+<div class='panv2020 varPlay' id='varUnit'>
+
+<p contenteditable="true" class="lineView">SWITCH</p>
+<div class='varSup ' style='text-transform: capitalize;' id='sliders-panv2020'><input type='range' class='ax' min='2.0' max='70.0' value='2.0' name='panv2020wght' id='panv2020wght'><label for='panv2020wght'>Weight</label><br><input type='range' class='ax' min='0.0' max='312.0' value='0.0' name='panv2020ANGL' id='panv2020ANGL'><label for='panv2020ANGL'>Angle</label><br><input type='range' class='ax' min='30.0' max='50.0' value='40.0' name='panv2020STEP' id='panv2020STEP'><label for='panv2020STEP'>Steps</label><br><input type='range' class='ax' min='0.0' max='2.0' value='0.0' name='panv2020SHAP' id='panv2020SHAP'><label for='panv2020SHAP'>Shapes</label><br></div>
+<script>
+const panv2020Sliders = document.querySelector("#sliders-panv2020");
+panv2020Sliders.oninput = panv2020Changer;
+function panv2020Changer(e) {
+  let fontElements = document.querySelectorAll("div.panv2020");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'wght' " + document.querySelector("#panv2020wght").value
++",'ANGL' " + document.querySelector("#panv2020ANGL").value
++",'STEP' " + document.querySelector("#panv2020STEP").value
++",'SHAP' " + document.querySelector("#panv2020SHAP").value
+  });}</script>
+</div>
