@@ -103,4 +103,6 @@ input {
 }
 
 
-
+div.mermaid {
+  font-family: "Source Code Pro";
+}

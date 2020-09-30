@@ -101,6 +101,10 @@ a:hover {
 .pt72 {
   font-size: 72px;
 }
-
-
-
+.mermaid {
+  max-width: 90vw;
+}
+svg {
+  max-width: var(--max-width);
+}
+}
