@@ -50,10 +50,23 @@ Since the drawings are not compatible, featureSubstitutions are needed. Currentl
 	I started creating this font system in 2017. Back then, in MacOS, only one axis was working for featureSubstitutions. Now in 2020, it seems that it is still not fully solved in MacOS. In browsers it all works prefectly!
 </p>
 <img src='content/pan/SWITCH.gif'/>
-<link rel='stylesheet' href='type/css/Pan_Clock.css'/>
-<div class='Pan_Clock noLowercasenoUppercase' id='varUnit' style="background-color: #FFC600; padding-bottom: 24px">
 
-<p style="font-size: 244px; font-variation-settings: 'wght' 30;" contenteditable="true" class="lineView"><span class="H">H</span>:<span class="M">M</span>:<span class="S">S</span><br></p><div></div>
+<link rel='stylesheet' href='type/css/Pan_Clock.css'/>
+
+<style type="text/css">
+  .Pan_Clock {padding-bottom: 24px;}
+  .Pan_Clock p{font-size:266px;}
+  @media only screen and (max-width: 700px) {
+        .Pan_Clock {padding-bottom: 0px;}
+        #varUnit p{font-size:72px;
+          min-height: 120px;}
+
+  }
+
+</style>
+<div class='Pan_Clock noLowercasenoUppercase' id='varUnit' style="background-color: #FFC600; ">
+
+<p style="font-variation-settings: 'wght' 30;" contenteditable="true" class="lineView"><span class="H">H</span>:<span class="M">M</span>:<span class="S">S</span><br></p><div></div>
 
 
 <script type="text/javascript">

@@ -107,4 +107,13 @@ a:hover {
 svg {
   max-width: var(--max-width);
 }
+
+#varUnit {
+  font-size: 72px;
+  background-color: #FFE5CC;
+  max-width: 900px;
+  text-align: center;
+  padding-top: 36px;
+}
+
 }
