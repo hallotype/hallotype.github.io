@@ -16,6 +16,147 @@
       href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;600&display=swap"
       rel="stylesheet"
     />
+
+        <style type="text/css">
+
+            .toggle-button-cover
+            {
+                display: inline-block;
+                position: relative; 
+                width: 100px;
+                height: 36px;
+                box-sizing: border-box;
+                /*float: left;*/
+                min-width: 200px;
+                margin-top: 12px;
+                margin-right: 4px;
+            }
+            @media only screen and (max-width: 700px) {
+              .toggle-button-cover
+            {
+/*                display: inline-block;
+                position: relative; 
+                width: 100px;
+                height: 36px;*/
+                box-sizing: border-box;
+                /*float: left;*/
+                min-width: 250px;
+            }
+            }
+
+            .button-cover
+            {
+                /*height: 100px;*/
+                /*margin: 20px;*/
+                background-color: none;
+                /*box-shadow: 0 10px 20px -8px #c5d6d6;*/
+                /*border-radius: 4px;*/
+            }
+
+            .button-cover:before
+            {
+                counter-increment: button-counter;
+                /*content: counter(button-counter);*/
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                color: #d7e3e3;
+                font-size: 12px;
+                line-height: 1;
+                padding: 5px;
+            }
+
+            .button-cover, .knobs, .layer
+            {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            .button
+            {
+                position: relative;
+                top: 50%;
+                width: 74px;
+                height: 36px;
+                margin: -20px auto 0 auto;
+                overflow: hidden;
+            }
+
+            .button.r, .button.r .layer
+            {
+                border-radius: 100px;
+            }
+
+            .button.b2
+            {
+                border-radius: 2px;
+            }
+
+            .checkbox
+            {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                padding: 0;
+                margin: 0;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 3;
+            }
+
+            .knobs
+            {
+                z-index: 2;
+            }
+
+            .layer
+            {
+                width: 100%;
+                background-color: #ebf7fc;
+                transition: 0.3s ease all;
+                z-index: 1;
+            }
+            /* Button 1 */
+            #button-1 .knobs:before
+            {
+                content: '⬆︎';
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                width: 20px;
+                height: 10px;
+                color: #fff;
+                font-size: 12px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 1;
+                padding: 9px 4px;
+                background-color: #56D5BC;
+                border-radius: 50%;
+                transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+            }
+
+            #button-1 .checkbox:checked + .knobs:before
+            {
+                content: '⬇︎';
+                left: 42px;
+                background-color: #56D5BC;
+            }
+
+            #button-1 .checkbox:checked ~ .layer
+            {
+                background-color: #fcebeb;
+            }
+
+            #button-1 .knobs, #button-1 .knobs:before, #button-1 .layer
+            {
+                transition: 0.3s ease all;
+            }
+
+    </style>
   </head>
   <body>
     <div id="tagline">
@@ -28,19 +169,7 @@
       </p>
     </div>
 
-    <div id="gohere">
-      ↑↑↑
-      <br />
-      go here!
-    </div>
-
-    <div id="construction">
-      <br />
-      &nbsp;← still<br />
-      &nbsp;← under<br />
-      &nbsp;↙︎ construction<br />
-      &nbsp;↙︎
-    </div>
+    
 
     <div id="main">
       <img src="content/wave/cover.gif" />
@@ -59,12 +188,25 @@
       <link rel="stylesheet" href="type/css/waave.css" />
       <div class="waave noLowercase" id="varUnit">
         <p contenteditable="true" class="lineView">CREATE SOME WAVES</p>
+        <!-- TODO: controls in a table -->
         <div
           class="varSup"
           style="text-transform: capitalize"
           id="sliders-waave"
         >
-          <input type="checkbox" id="phaseDirection" name="phaseDirection"/> 
+          
+          <div class="toggle-button-cover">
+            <div class="button-cover">
+              <div class="button r" id="button-1">
+                <input type="checkbox" class="checkbox" id="phaseDirection" name="phaseDirection">
+                <div class="knobs"></div>
+                <div class="layer"></div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- <input type="checkbox" id="phaseDirection" name="phaseDirection"/>  -->
           <label for="phaseDirection">Direction</label><br />
           <input
             type="range"
