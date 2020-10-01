@@ -31,6 +31,14 @@ img {
   width: 800px;
 }
 
+.description a {
+  background-color: #ff003316;
+}
+.description a:hover {
+  background-color: #ff0033;
+  font-weight: 600;
+}
+
 .desctop {
   width: 900px;
   max-width: 860px;
@@ -41,12 +49,6 @@ img {
   margin-bottom: -0px;
 }
 
-.description a {
-  background-color: #ff003316;
-}
-.description a:hover {
-  /*background-color: #ff0033;*/
-}
 
 .varPlay p {
   font-size: 144px;
