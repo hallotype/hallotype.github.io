@@ -1,5 +1,6 @@
-finished = True
-title = 'golf'
+# finished = False
+from collections import OrderedDict
+title = 'Golf'
 
 tags = '''type
 variable
@@ -10,7 +11,6 @@ The phase of a wave repeats over and over to create a smooth animation. Other pa
 
 I wrote a tool to create this font out of a normal font. To declare the extreme for the amplitude, and all the wave-lengths, the wave-font is generated.<br> '''
 
-from collections import OrderedDict
-sd = OrderedDict()
 sitecontent = OrderedDict()
 sitecontent["cover.gif"] = "some text"
+sitecontent["golf-varUnit.html"] = "some text"

@@ -1,4 +1,16 @@
 
+const panv2020Sliders = document.querySelector("#sliders-panv2020");
+panv2020Sliders.oninput = panv2020Changer;
+function panv2020Changer(e) {
+  let fontElements = document.querySelectorAll("div.panv2020");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'wght' " + document.querySelector("#panv2020wght").value
++",'ANGL' " + document.querySelector("#panv2020ANGL").value
++",'STEP' " + document.querySelector("#panv2020STEP").value
++",'SHAP' " + document.querySelector("#panv2020SHAP").value
+  });}
 const PanSliders = document.querySelector("#sliders-Pan");
 PanSliders.oninput = PanChanger;
 function PanChanger(e) {
@@ -31,6 +43,17 @@ function PikselsChanger(e) {
 +",'PROP' " + document.querySelector("#PikselsPROP").value
 +",'slnt' " + document.querySelector("#Pikselsslnt").value
 +",'ROTA' " + document.querySelector("#PikselsROTA").value
+  });}
+const Pan_ClockSliders = document.querySelector("#sliders-Pan_Clock");
+Pan_ClockSliders.oninput = Pan_ClockChanger;
+function Pan_ClockChanger(e) {
+  let fontElements = document.querySelectorAll("div.Pan_Clock");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'wght' " + document.querySelector("#Pan_Clockwght").value
++",'ANGL' " + document.querySelector("#Pan_ClockANGL").value
++",'STEP' " + document.querySelector("#Pan_ClockSTEP").value
   });}
 const waaveSliders = document.querySelector("#sliders-waave");
 waaveSliders.oninput = waaveChanger;

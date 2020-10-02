@@ -4,6 +4,7 @@ import importlib
 from importlib.machinery import SourceFileLoader
 import string
 import random
+from pathlib import Path
 
 # gen proj page
 
@@ -17,14 +18,20 @@ def generateProjectPage(project):
     projHtml = str(projHtmlTemp)
     content = ""
     if project['content']:
-        for index, img in enumerate(project['content']):
-            # first image
-            content += """<img src='%s/%s'/>\n""" % (project['path'], img)
-            # then description
-            if index == 0 and project['texts'].description:
-                content += """<p class="description">%s</p>\n""" % project['texts'].description
-            # then more images
-            # then more images
+        for index, item in enumerate(project['content']):
+            # image
+            if Path(item).suffix in [".png", ".gif"]: 
+                content += """<img src='%s/%s'/>\n""" % (project['path'], item)
+                # then description
+                if index == 0 and project['texts'].description:
+                    content += """<p class="description">%s</p>\n""" % project['texts'].description
+            # html blocks
+            if Path(item).suffix in [".html"]:
+                blockfile = open('%s/%s' % (project['path'], item) , 'r')
+                code = blockfile.read()
+                blockfile.close()
+                content += code
+
 
     projHtml = projHtml.format(
         title=project['texts'].title,
