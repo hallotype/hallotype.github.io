@@ -18,116 +18,112 @@
   </head>
   <body>
     <div id="tagline">
-  <p>
-    <br />&gt; <b><a href="https://hallotype.github.io/">HalloType</a></b> =
-    Thom Janssen = font maker, type engineer, programmer, creative coder
-    <a href="./type/fonts.html"
-      ><span class="typelink"> > typefaces&nbsp;&nbsp;&nbsp;</span></a
-    >
-  </p>
-</div>
-
-<!-- <div id="gohere">
-	↑↑↑
-	<br/>
-	go here!
-</div>
-
-<div id="construction">
-	<br/>
-&nbsp;← still<br/>
-&nbsp;← under<br/>
-&nbsp;↙︎ construction<br/>
-&nbsp;↙︎
-
-</div> -->
+      <p>
+        <br />&gt; <b><a href="https://hallotype.github.io/">HalloType</a></b> =
+        Thom Janssen = font maker, type engineer, programmer, creative coder
+        <a href="./type/fonts.html"
+          ><span class="typelink"> > typefaces&nbsp;&nbsp;&nbsp;</span></a
+        >
+      </p>
+    </div>
 
     <div id="main">
-      <img src='content/piksels/cover.gif'/>
-<p class="description">This Piksels project is an idea for a variable system for pixels fonts.<br>
-All the pixel in the glyphs are components. And all the pixel-shapes are present as seperate glyphs.
-A scripts builds the designspace according to the various pixel-shapes present and some parameters [ proportion, slant, rotation ], and all the needed sources are generated. Then the variable font can be generated.<br>
-In this example I have 7 alphabets, these are accessible via FeatureVariations. </p>
-<img src='content/piksels/spectrum.gif'/>
-<img src='content/piksels/DK2.gif'/>
-<img src='content/piksels/CASTLE.gif'/>
-<link rel="stylesheet" href="type/css/Piksels.css" />
-<div class="Piksels noLowercase" id="varUnit">
-  <p contenteditable="true" class="lineView">DUCK HUNT</p>
-  <div class="varSup" style="text-transform: capitalize" id="sliders-Piksels">
-    <input
-      type="range"
-      class="ax"
-      min="0.0"
-      max="700.0"
-      value="0.0"
-      name="PikselsPIXL"
-      id="PikselsPIXL"
-    /><label for="PikselsPIXL">Pixel</label><br /><input
-      type="range"
-      class="ax"
-      min="1.0"
-      max="7.0"
-      value="1.0"
-      name="PikselsCHAR"
-      id="PikselsCHAR"
-    /><label for="PikselsCHAR">Character Set</label><br /><input
-      type="range"
-      class="ax"
-      min="50.0"
-      max="150.0"
-      value="100.0"
-      name="PikselsPROP"
-      id="PikselsPROP"
-    /><label for="PikselsPROP">Proportion</label><br /><input
-      type="range"
-      class="ax"
-      min="-50.0"
-      max="50.0"
-      value="0.0"
-      name="Pikselsslnt"
-      id="Pikselsslnt"
-    /><label for="Pikselsslnt">Slant</label><br /><input
-      type="range"
-      class="ax"
-      min="0.0"
-      max="360.0"
-      value="0.0"
-      name="PikselsROTA"
-      id="PikselsROTA"
-    /><label for="PikselsROTA">Rotate</label><br />
-  </div>
-  <script>
-    const PikselsSliders = document.querySelector("#sliders-Piksels");
-    PikselsSliders.oninput = PikselsChanger;
-    function PikselsChanger(e) {
-      let fontElements = document.querySelectorAll("div.Piksels");
-      fontElements.forEach(function (fontElement) {
-        fontElement.style.cssText =
-          "font-variation-settings:" +
-          "'PIXL' " +
-          document.querySelector("#PikselsPIXL").value +
-          ",'CHAR' " +
-          document.querySelector("#PikselsCHAR").value +
-          ",'PROP' " +
-          document.querySelector("#PikselsPROP").value +
-          ",'slnt' " +
-          document.querySelector("#Pikselsslnt").value +
-          ",'ROTA' " +
-          document.querySelector("#PikselsROTA").value;
-      });
-    }
-  </script>
-</div>
-<p class="description desctop">
-  The working file is a single UFO. Here are all the character sets, the pixels,
-  and a temporary pixel for sketching. In the features, the lookups for
-  FeatureSubstitution are declared and the rvrn feature is initiated. After the
-  font is generated, a custom made GSUB table is merged into the font to make
-  the FeatureSubsitions work.
-</p>
-<img src="content/piksels/fontOverview.png" />
-<img src='content/piksels/MARIO.png'/>
+      <img src="content/piksels/cover.gif" />
+      <p class="description">
+        This Piksels project is an idea for a variable system for pixels
+        fonts.<br />
+        All the pixel in the glyphs are components. And all the pixel-shapes are
+        present as seperate glyphs. A scripts builds the designspace according
+        to the various pixel-shapes present and some parameters [ proportion,
+        slant, rotation ], and all the needed sources are generated. Then the
+        variable font can be generated.<br />
+        In this example I have 7 alphabets, these are accessible via
+        FeatureVariations.
+      </p>
+      <img src="content/piksels/spectrum.gif" />
+      <img src="content/piksels/DK2.gif" />
+      <img src="content/piksels/CASTLE.gif" />
+      <link rel="stylesheet" href="type/css/Piksels.css" />
+      <div class="Piksels noLowercase" id="varUnit">
+        <p contenteditable="true" class="lineView">DUCK HUNT</p>
+        <div
+          class="varSup"
+          style="text-transform: capitalize"
+          id="sliders-Piksels"
+        >
+          <input
+            type="range"
+            class="ax"
+            min="0.0"
+            max="700.0"
+            value="0.0"
+            name="PikselsPIXL"
+            id="PikselsPIXL"
+          /><label for="PikselsPIXL">Pixel</label><br /><input
+            type="range"
+            class="ax"
+            min="1.0"
+            max="7.0"
+            value="1.0"
+            name="PikselsCHAR"
+            id="PikselsCHAR"
+          /><label for="PikselsCHAR">Character Set</label><br /><input
+            type="range"
+            class="ax"
+            min="50.0"
+            max="150.0"
+            value="100.0"
+            name="PikselsPROP"
+            id="PikselsPROP"
+          /><label for="PikselsPROP">Proportion</label><br /><input
+            type="range"
+            class="ax"
+            min="-50.0"
+            max="50.0"
+            value="0.0"
+            name="Pikselsslnt"
+            id="Pikselsslnt"
+          /><label for="Pikselsslnt">Slant</label><br /><input
+            type="range"
+            class="ax"
+            min="0.0"
+            max="360.0"
+            value="0.0"
+            name="PikselsROTA"
+            id="PikselsROTA"
+          /><label for="PikselsROTA">Rotate</label><br />
+        </div>
+        <script>
+          const PikselsSliders = document.querySelector("#sliders-Piksels");
+          PikselsSliders.oninput = PikselsChanger;
+          function PikselsChanger(e) {
+            let fontElements = document.querySelectorAll("div.Piksels");
+            fontElements.forEach(function (fontElement) {
+              fontElement.style.cssText =
+                "font-variation-settings:" +
+                "'PIXL' " +
+                document.querySelector("#PikselsPIXL").value +
+                ",'CHAR' " +
+                document.querySelector("#PikselsCHAR").value +
+                ",'PROP' " +
+                document.querySelector("#PikselsPROP").value +
+                ",'slnt' " +
+                document.querySelector("#Pikselsslnt").value +
+                ",'ROTA' " +
+                document.querySelector("#PikselsROTA").value;
+            });
+          }
+        </script>
+      </div>
+      <p class="description desctop">
+        The working file is a single UFO. Here are all the character sets, the
+        pixels, and a temporary pixel for sketching. In the features, the
+        lookups for FeatureSubstitution are declared and the rvrn feature is
+        initiated. After the font is generated, a custom made GSUB table is
+        merged into the font to make the FeatureSubsitions work.
+      </p>
+      <img src="content/piksels/fontOverview.png" />
+      <img src="content/piksels/MARIO.png" />
 
       <!-- <div id="bottomline">&nbsp;</div> -->
     </div>
