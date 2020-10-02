@@ -18,280 +18,284 @@
   </head>
   <body>
     <div id="tagline">
-      <p>
-        <br />&gt; <b><a href="https://hallotype.github.io/">HalloType</a></b> =
-        Thom Janssen = font maker, type engineer, programmer, creative coder
-        <a href="./type/fonts.html"
-          ><span class="typelink"> > typefaces&nbsp;&nbsp;&nbsp;</span></a
-        >
-      </p>
-    </div>
+  <p>
+    <br />&gt; <b><a href="https://hallotype.github.io/">HalloType</a></b> =
+    Thom Janssen = font maker, type engineer, programmer, creative coder
+    <a href="./type/fonts.html"
+      ><span class="typelink"> > typefaces&nbsp;&nbsp;&nbsp;</span></a
+    >
+  </p>
+</div>
+
+<!-- <div id="gohere">
+	↑↑↑
+	<br/>
+	go here!
+</div>
+
+<div id="construction">
+	<br/>
+&nbsp;← still<br/>
+&nbsp;← under<br/>
+&nbsp;↙︎ construction<br/>
+&nbsp;↙︎
+
+</div> -->
 
     <div id="main">
-      <img src="content/wave/cover.gif" />
-      <p class="description">
-        This is a fine example where variable fonts and animation go hand in
-        hand.<br />
-        The phase of a wave repeats over and over to create a smooth animation.
-        Other parameters in this design are the amplitute, wave-length, speed,
-        and direction. <br /><br />
+      <img src='content/wave/cover.gif'/>
+<p class="description">This is a fine example where variable fonts and animation go hand in hand.<br>
+The phase of a wave repeats over and over to create a smooth animation. Other parameters in this design are the amplitute, wave-length, speed, and direction. <br><br>
 
-        I wrote a tool to create this font out of a normal font. To declare the
-        extreme for the amplitude, and all the wave-lengths, the wave-font is
-        generated.<br />
-      </p>
-      <style type="text/css">
-        .toggle-button-cover {
-          display: inline-block;
-          position: relative;
-          width: 100px;
-          height: 36px;
-          box-sizing: border-box;
-          /*float: left;*/
-          min-width: 200px;
-          margin-top: 12px;
-          margin-right: 4px;
-        }
-        @media only screen and (max-width: 700px) {
-          .toggle-button-cover {
-            /*                display: inline-block;
+I wrote a tool to create this font out of a normal font. To declare the extreme for the amplitude, and all the wave-lengths, the wave-font is generated.<br> </p>
+<style type="text/css">
+  .toggle-button-cover {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 36px;
+    box-sizing: border-box;
+    /*float: left;*/
+    min-width: 200px;
+    margin-top: 12px;
+    margin-right: 4px;
+  }
+  @media only screen and (max-width: 700px) {
+    .toggle-button-cover {
+      /*                display: inline-block;
                 position: relative; 
                 width: 100px;
                 height: 36px;*/
-            box-sizing: border-box;
-            /*float: left;*/
-            min-width: 250px;
-          }
-        }
+      box-sizing: border-box;
+      /*float: left;*/
+      min-width: 250px;
+    }
+  }
 
-        .button-cover {
-          /*height: 100px;*/
-          /*margin: 20px;*/
-          background-color: none;
-          /*box-shadow: 0 10px 20px -8px #c5d6d6;*/
-          /*border-radius: 4px;*/
-        }
+  .button-cover {
+    /*height: 100px;*/
+    /*margin: 20px;*/
+    background-color: none;
+    /*box-shadow: 0 10px 20px -8px #c5d6d6;*/
+    /*border-radius: 4px;*/
+  }
 
-        .button-cover:before {
-          counter-increment: button-counter;
-          /*content: counter(button-counter);*/
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          color: #d7e3e3;
-          font-size: 12px;
-          line-height: 1;
-          padding: 5px;
-        }
+  .button-cover:before {
+    counter-increment: button-counter;
+    /*content: counter(button-counter);*/
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #d7e3e3;
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px;
+  }
 
-        .button-cover,
-        .knobs,
-        .layer {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-        }
+  .button-cover,
+  .knobs,
+  .layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 
-        .button {
-          position: relative;
-          top: 50%;
-          width: 74px;
-          height: 36px;
-          margin: -20px auto 0 auto;
-          overflow: hidden;
-        }
+  .button {
+    position: relative;
+    top: 50%;
+    width: 74px;
+    height: 36px;
+    margin: -20px auto 0 auto;
+    overflow: hidden;
+  }
 
-        .button.r,
-        .button.r .layer {
-          border-radius: 100px;
-        }
+  .button.r,
+  .button.r .layer {
+    border-radius: 100px;
+  }
 
-        .button.b2 {
-          border-radius: 2px;
-        }
+  .button.b2 {
+    border-radius: 2px;
+  }
 
-        .checkbox {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          padding: 0;
-          margin: 0;
-          opacity: 0;
-          cursor: pointer;
-          z-index: 3;
-        }
+  .checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
 
-        .knobs {
-          z-index: 2;
-        }
+  .knobs {
+    z-index: 2;
+  }
 
-        .layer {
-          width: 100%;
-          background-color: #fcebeb;
-          transition: 0.3s ease all;
-          z-index: 1;
-        }
-        /* Button 1 */
-        #button-1 .knobs:before {
-          content: "⬆︎";
-          position: absolute;
-          top: 4px;
-          left: 4px;
-          width: 20px;
-          height: 10px;
-          color: #fff;
-          font-size: 12px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 1;
-          padding: 9px 4px;
-          background-color: #56d5bc;
-          border-radius: 50%;
-          transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
-        }
+  .layer {
+    width: 100%;
+    background-color: #fcebeb;
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+  /* Button 1 */
+  #button-1 .knobs:before {
+    content: "⬆︎";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #56d5bc;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+  }
 
-        #button-1 .checkbox:checked + .knobs:before {
-          content: "⬇︎";
-          left: 42px;
-          background-color: #56d5bc;
-        }
+  #button-1 .checkbox:checked + .knobs:before {
+    content: "⬇︎";
+    left: 42px;
+    background-color: #56d5bc;
+  }
 
-        #button-1 .checkbox:checked ~ .layer {
-          background-color: #fcebeb;
-        }
+  #button-1 .checkbox:checked ~ .layer {
+    background-color: #fcebeb;
+  }
 
-        #button-1 .knobs,
-        #button-1 .knobs:before,
-        #button-1 .layer {
-          transition: 0.3s ease all;
-        }
-      </style>
+  #button-1 .knobs,
+  #button-1 .knobs:before,
+  #button-1 .layer {
+    transition: 0.3s ease all;
+  }
+</style>
 
-      <link rel="stylesheet" href="type/css/waave.css" />
-      <div class="waave noLowercase" id="varUnit">
-        <p contenteditable="true" class="lineView">CREATE SOME WAVES</p>
-        <!-- TODO: controls in a table -->
-        <div
-          class="varSup"
-          style="text-transform: capitalize"
-          id="sliders-waave"
-        >
-          <div class="toggle-button-cover">
-            <div class="button-cover">
-              <div class="button r" id="button-1">
-                <input
-                  type="checkbox"
-                  class="checkbox"
-                  id="phaseDirection"
-                  name="phaseDirection"
-                />
-                <div class="knobs"></div>
-                <div class="layer"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- <input type="checkbox" id="phaseDirection" name="phaseDirection"/>  -->
-          <label for="phaseDirection">Direction</label><br />
+<link rel="stylesheet" href="type/css/waave.css" />
+<div class="waave noLowercase" id="varUnit">
+  <p contenteditable="true" class="lineView">CREATE SOME WAVES</p>
+  <!-- TODO: controls in a table -->
+  <div class="varSup" style="text-transform: capitalize" id="sliders-waave">
+    <div class="toggle-button-cover">
+      <div class="button-cover">
+        <div class="button r" id="button-1">
           <input
-            type="range"
-            min="0"
-            max="100"
-            value="20"
-            class="slider"
-            id="speed"
-            name="speed"
+            type="checkbox"
+            class="checkbox"
+            id="phaseDirection"
+            name="phaseDirection"
           />
-          <label for="speed">Speed</label><br />
-          <!-- <input
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <input type="checkbox" id="phaseDirection" name="phaseDirection"/>  -->
+    <label for="phaseDirection">Direction</label><br />
+    <input
+      type="range"
+      min="0"
+      max="100"
+      value="20"
+      class="slider"
+      id="speed"
+      name="speed"
+    />
+    <label for="speed">Speed</label><br />
+    <!-- <input
         type="checkbox"
         id="autoPhase"
         checked=true
       />Auto-Phase<br> -->
 
-          <input
-            type="range"
-            min="50"
-            max="700"
-            value="200"
-            class="slider"
-            id="waveLength"
-            name="waveLength"
-          />
-          <label for="waveLength">Wave Length</label><br />
-          <input
-            type="range"
-            min="0"
-            max="40"
-            value="20"
-            class="slider"
-            id="amplitude"
-            name="amplitude"
-          />
-          <label for="amplitude">Amplitude</label><br />
+    <input
+      type="range"
+      min="50"
+      max="700"
+      value="200"
+      class="slider"
+      id="waveLength"
+      name="waveLength"
+    />
+    <label for="waveLength">Wave Length</label><br />
+    <input
+      type="range"
+      min="0"
+      max="40"
+      value="20"
+      class="slider"
+      id="amplitude"
+      name="amplitude"
+    />
+    <label for="amplitude">Amplitude</label><br />
 
-          <input
-            type="range"
-            min="0"
-            max="10"
-            value="0"
-            class="slider"
-            id="phase"
-            disabled
-            name="phase"
-          />
-          <label for="phase">Phase</label><br />
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <input
+      type="range"
+      min="0"
+      max="10"
+      value="0"
+      class="slider"
+      id="phase"
+      disabled
+      name="phase"
+    />
+    <label for="phase">Phase</label><br />
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-        <script>
-          const speed = document.getElementById("speed");
-          // const autoPhase = document.getElementById("autoPhase");
-          const phaseDirection = document.getElementById("phaseDirection");
-          const waveLength = document.getElementById("waveLength");
-          const amplitude = document.getElementById("amplitude");
-          const phase = document.getElementById("phase");
+  <script>
+    const speed = document.getElementById("speed");
+    // const autoPhase = document.getElementById("autoPhase");
+    const phaseDirection = document.getElementById("phaseDirection");
+    const waveLength = document.getElementById("waveLength");
+    const amplitude = document.getElementById("amplitude");
+    const phase = document.getElementById("phase");
 
+    $value = 0;
+
+    var tid = setTimeout(myFunction, 0);
+    function myFunction() {
+      setTimeout(myFunction, 20);
+      timer = speed.value;
+      // console.log($timer);
+
+      if (phaseDirection.checked) {
+        $value += Number(timer);
+        if ($value > 1000) {
           $value = 0;
+        }
+      } else {
+        $value = $value - timer;
+        if ($value < 0) {
+          $value = 1000;
+        }
+      }
 
-          var tid = setTimeout(myFunction, 0);
-          function myFunction() {
-            setTimeout(myFunction, 20);
-            timer = speed.value;
-            // console.log($timer);
+      phase.value = $value / 100;
 
-            if (phaseDirection.checked) {
-              $value += Number(timer);
-              if ($value > 1000) {
-                $value = 0;
-              }
-            } else {
-              $value = $value - timer;
-              if ($value < 0) {
-                $value = 1000;
-              }
-            }
-
-            phase.value = $value / 100;
-
-            // console.log($value);
-            $.each([".lineView"], function (i, c) {
-              if (c == ".lineView") {
-                var settings =
-                  "'SHFT' " +
-                  $value / 100 +
-                  " , 'AMPL' " +
-                  amplitude.value +
-                  " , 'LMBD' " +
-                  waveLength.value;
-                $(c).css("font-variation-settings", settings);
-              }
-            });
-          }
-        </script>
-      </div>
+      // console.log($value);
+      $.each([".lineView"], function (i, c) {
+        if (c == ".lineView") {
+          var settings =
+            "'SHFT' " +
+            $value / 100 +
+            " , 'AMPL' " +
+            amplitude.value +
+            " , 'LMBD' " +
+            waveLength.value;
+          $(c).css("font-variation-settings", settings);
+        }
+      });
+    }
+  </script>
+</div>
 
       <!-- <div id="bottomline">&nbsp;</div> -->
     </div>

@@ -11,27 +11,27 @@ from pathlib import Path
 
 def generateProjectPage(project):
     print(project['path'])
-    print((project['texts'].description))
+    # print((project['texts'].description))
 
-    link = project['texts'].title.replace(" ", "") + ".html"
+    link = (project['texts'].title.replace(" ", "") + ".html").lower()
+    print(link)
     proj = open(link, 'w+')
     projHtml = str(projHtmlTemp)
     content = ""
     if project['content']:
         for index, item in enumerate(project['content']):
             # image
-            if Path(item).suffix in [".png", ".gif"]: 
+            if Path(item).suffix in [".png", ".gif"]:
                 content += """<img src='%s/%s'/>\n""" % (project['path'], item)
                 # then description
                 if index == 0 and project['texts'].description:
                     content += """<p class="description">%s</p>\n""" % project['texts'].description
             # html blocks
             if Path(item).suffix in [".html"]:
-                blockfile = open('%s/%s' % (project['path'], item) , 'r')
+                blockfile = open('%s/%s' % (project['path'], item), 'r')
                 code = blockfile.read()
                 blockfile.close()
                 content += code
-
 
     projHtml = projHtml.format(
         title=project['texts'].title,
@@ -102,7 +102,7 @@ for index, o in enumerate(order):
 
         projectTxt = projTemp.format(
             cover=cover,
-            link=link,
+            link=link.lower(),
             title=projectTexts.title,
             tags=tags
         )
