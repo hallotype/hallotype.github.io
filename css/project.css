@@ -49,7 +49,14 @@ img {
   margin-bottom: -0px;
 }
 
-
 .varPlay p {
   font-size: 144px;
+}
+
+.icon {
+  float: left;
+  margin-right: 12px;
+}
+.icon:hover {
+  background-color: white;
 }
