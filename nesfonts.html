@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" spellcheck="false">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>NES Fonts</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/project.css" />
+    <link rel="stylesheet" href="css/main700.css" />
+    <link rel="stylesheet" href="css/project700.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;600&display=swap"
+    />
+  </head>
+  <body>
+    <div id="tagline">
+  <p>
+    <br />&gt; <b><a href="https://hallotype.github.io/">HalloType</a></b> =
+    Thom Janssen = font maker, type engineer, programmer, creative coder
+    <a href="./type/fonts.html"
+      ><span class="typelink"> > typefaces&nbsp;&nbsp;&nbsp;</span></a
+    >
+  </p>
+</div>
+
+<!-- <div id="gohere">
+	↑↑↑
+	<br/>
+	go here!
+</div>
+
+<div id="construction">
+	<br/>
+&nbsp;← still<br/>
+&nbsp;← under<br/>
+&nbsp;↙︎ construction<br/>
+&nbsp;↙︎
+
+</div> -->
+
+    <div id="main">
+      <img src='content/NESFont/cover.png'/>
+<p class="description">The fonts in NES games are usually build up by 8x8 bytes per character. By plotting the binary data, the graphic tiles become visible and the font is exposed. If you know where the font data is located, you can draw the characters into a UFO and generate a fully working font.</p>
+<p class="description desctop">
+  Here is the graphic data set of Super Mario Bros.<br />
+  In this game the type is monochome, so there is only one layer. Very
+  convenient, the font clearly visible, and extracting is easy.
+</p>
+<img src="content/NESFont/SMB1.png" />
+
+<p class="description">
+  For extracting the font, a few parameters are needed:<br />
+  <b>></b> the byte where the font starts <br />
+  <b>></b> order of characters <br /><br />
+  Quite often there is a black character between letters in the rom. I think
+  this is because one is the foreground layer and the next is the background (or
+  vise versa). For now, I just skip every second character.
+</p>
+<a
+  class="icon"
+  href="https://raw.githubusercontent.com/hallotype/hallotype.github.io/master/content/NESFont/DrawRom.py"
+  ><img src="content/NESFont/PyIcon.png" />
+</a>
+
+<p class="description">
+  <br />
+  <a
+    href="https://raw.githubusercontent.com/hallotype/hallotype.github.io/master/content/NESFont/DrawRom.py"
+  >
+    << Download here my <b>DrawRom.py</b> DrawBot script.
+  </a>
+</p>
+<div class="clear"></div>
+<p class="description">
+  From here its a small step to draw the pixels into a glyph...
+</p>
+
+still a draft!still a draft!still a draft!still a draft!still a draft!still a
+draft!still a draft!still a draft!still a draft!still a draft!still a
+draft!still a draft!still a draft!still a draft!still a draft!still a
+draft!still a draft!
+
+      <!-- <div id="bottomline">&nbsp;</div> -->
+    </div>
+  </body>
+</html>
