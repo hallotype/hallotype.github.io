@@ -51,16 +51,30 @@ Since the drawings are not compatible, featureSubstitutions are needed. Currentl
 </p>
 <img src='content/pan/SWITCH.gif'/>
 <link rel="stylesheet" href="type/css/Pan_Clock.css" />
-<div
-  class="Pan_Clock noLowercasenoUppercase"
-  id="varUnit"
-  style="background-color: #ffc600; padding-bottom: 24px"
->
-  <p
-    style="font-size: 266px; font-variation-settings: 'wght' 30"
-    contenteditable="true"
-    class="lineView"
-  >
+<style>
+  #varUnit.w {
+    background-color: #ffc600;
+    /* padding-bottom: 24px; */
+  }
+  .Pan_Clock p {
+    font-size: 266px;
+    font-variation-settings: "wght" 30;
+  }
+  @media only screen and (max-width: 700px) {
+    #varUnit {
+      /* padding-bottom: 0px; */
+    }
+    .Pan_Clock p {
+      font-size: calc((90vw / (2995 / 1000)-10));
+    }
+
+    p {
+      min-height: auto;
+    }
+  }
+</style>
+<div class="Pan_Clock w" id="varUnit">
+  <p contenteditable="false" class="lineView">
     <span class="H">H</span><span class="sep">:</span><span class="M">M</span
     ><span class="sep">:</span><span class="S">S</span><br />
   </p>
@@ -154,6 +168,12 @@ Since the drawings are not compatible, featureSubstitutions are needed. Currentl
     }
   </script>
 </div>
+<style>
+    svg {
+        max-height: 300px;
+    }
+</style>
+
 <p class=""><br><br>Here is a visualisation of my workflow. </p>
 <script  src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.7.0/mermaid.min.js"></script>
 <div class="mermaid">

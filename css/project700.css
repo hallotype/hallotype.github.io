@@ -45,11 +45,11 @@
     background-color: #66e5cc;
     max-width: var(--max-width);
     text-align: center;
-    padding-top: 36px;
+    padding: 24px 0px;
   }
 
   #varUnit p {
-    min-height: 200px;
+    /* min-height: 200px; */
     max-height: 200px;
   }
 
