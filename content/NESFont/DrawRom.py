@@ -2,6 +2,8 @@
 Plot binary data, especially old game ROMs like NES games.
 You have to have your own rom files. I dont support piracy.
 
+https://hallotype.github.io/nesfonts.html
+
 Thom Janssen, HalloType, 2020
 thom@hallotype.nl
 
