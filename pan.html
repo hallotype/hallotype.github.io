@@ -54,22 +54,15 @@ Since the drawings are not compatible, featureSubstitutions are needed. Currentl
 <style>
   #varUnit.w {
     background-color: #ffc600;
-    /* padding-bottom: 24px; */
   }
   .Pan_Clock p {
     font-size: 266px;
     font-variation-settings: "wght" 30;
   }
-  @media only screen and (max-width: 700px) {
-    #varUnit {
-      /* padding-bottom: 0px; */
-    }
-    .Pan_Clock p {
-      font-size: calc((90vw / (2995 / 1000)-10));
-    }
 
-    p {
-      min-height: auto;
+  @media only screen and (max-width: 700px) {
+    #varUnit.w {
+      display: none;
     }
   }
 </style>
