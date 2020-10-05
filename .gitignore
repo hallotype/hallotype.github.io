@@ -8,3 +8,4 @@
 *park/
 *.vscode*
 _*
+.prettierignore
