@@ -1,0 +1,16 @@
+<link rel='stylesheet' href='type/css/PanAngler.css'/>
+<div class='PanAngler noLowercase' id='varUnit'>
+
+<p contenteditable="true" class="lineView">OHamburgefonstiv</p>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-PanAngler'><input type='range' class='ax' min='0.0' max='350.0' value='0.0' name='PanAnglerANGL' id='PanAnglerANGL'><label for='PanAnglerANGL'>Angle</label><br></div>
+<script>
+const PanAnglerSliders = document.querySelector("#sliders-PanAngler");
+PanAnglerSliders.oninput = PanAnglerChanger;
+function PanAnglerChanger(e) {
+  let fontElements = document.querySelectorAll("div.PanAngler");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'ANGL' " + document.querySelector("#PanAnglerANGL").value
+  });}</script>
+</div>

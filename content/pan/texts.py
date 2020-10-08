@@ -16,5 +16,6 @@ sitecontent = OrderedDict()
 sitecontent["cover.png"] = "some text"
 sitecontent["SWITCH.gif"] = "some text"
 sitecontent['clock.html'] = "hoi"
+sitecontent['angler.html'] = "angles"
 sitecontent["flowchart.html"] = "hoi"
 sitecontent["varPlay.html"] = "hoi"

@@ -75,3 +75,12 @@ function BexTiltChanger(e) {
       "font-variation-settings:" +
 "'ital' " + document.querySelector("#BexTiltital").value
   });}
+const PanAnglerSliders = document.querySelector("#sliders-PanAngler");
+PanAnglerSliders.oninput = PanAnglerChanger;
+function PanAnglerChanger(e) {
+  let fontElements = document.querySelectorAll("div.PanAngler");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'ANGL' " + document.querySelector("#PanAnglerANGL").value
+  });}

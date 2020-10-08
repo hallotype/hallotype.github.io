@@ -1,0 +1,81 @@
+<style>
+  #angler {
+
+    font-size: 72px;
+    background-color: #66e5cc;
+    max-width: 900px;
+    text-align: center;
+    padding-top: 110px;
+
+
+    max-width: 900px;
+    min-height: 350px;
+    background-color: aquamarine;
+    color: black;
+    text-align: center;
+  
+    margin-top: 12px;
+    font-size: 200px;
+  
+  }
+</style>
+
+
+<link rel='stylesheet' href='type/css/PanAngler.css'/>
+<div class='PanAngler noLowercase' id='angler'>
+
+<p contenteditable="false" class="lineView var">
+  <span class="A">A</span><span class="N">N</span><span class="G">G</span><span class="L">L</span><span class="E">E</span><span class="R">R</span>
+</p>
+
+<script>
+  function calcAngleDegrees(x, y) {
+    return Math.ceil((
+      Math.atan2(y, x) * 180 / Math.PI
+      + 90 + 360 ) % 360);
+  }
+  function getAngle (x,y, x1=450, y1=225) {
+    var angle = calcAngleDegrees(x-x1, y-y1);
+    return angle;
+  }
+  document.getElementById('angler').addEventListener('mousemove', updateAngles)
+
+  function getPos(e) {
+    var rect = document.getElementById('angler').getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    return { x, y }
+  }
+
+  function updateAngles(e) {
+    var pos = getPos(e);
+    // console.log(pos)
+    
+    var a = getAngle(pos.x, pos.y, x1=72);
+    var letters = document.querySelectorAll(".A");
+    letters.forEach(function (lett) {lett.style.cssText = "font-variation-settings: 'ANGL' " + a ;  });
+
+    var a = getAngle(pos.x, pos.y, x1=232);
+    var letters = document.querySelectorAll(".N");
+    letters.forEach(function (lett) {lett.style.cssText = "font-variation-settings: 'ANGL' " + a ;  });
+    
+    var a = getAngle(pos.x, pos.y, x1=391);
+    var letters = document.querySelectorAll(".G");
+    letters.forEach(function (lett) {lett.style.cssText = "font-variation-settings: 'ANGL' " + a ;  });
+    
+    var a = getAngle(pos.x, pos.y, x1=536);
+    var letters = document.querySelectorAll(".L");
+    letters.forEach(function (lett) {lett.style.cssText = "font-variation-settings: 'ANGL' " + a ;  });
+    
+    var a = getAngle(pos.x, pos.y, x1=663);
+    var letters = document.querySelectorAll(".E");
+    letters.forEach(function (lett) {lett.style.cssText = "font-variation-settings: 'ANGL' " + a ;  });
+    
+    var a = getAngle(pos.x, pos.y, x1=800);
+    var letters = document.querySelectorAll(".R");
+    letters.forEach(function (lett) {lett.style.cssText = "font-variation-settings: 'ANGL' " + a ;  });
+
+    }
+
+</script>
+</div>
