@@ -47,17 +47,21 @@
 <p class="description">Pan is a variable type system. The idea is to slice the glyphs in various ways and draw contours with the slice-data. <br>
 Since the drawings are not compatible, featureSubstitutions are needed. Currently three axes [Angle, Steps, Shape] controle what glyph is shown. A special set of tools was needed to create the GSUB table that can handle this.<br><br>
 
-	I started creating this font system in 2017. Back then, in MacOS, only one axis was working for featureSubstitutions. Now in 2020, it seems that it is still not fully solved in MacOS. In browsers [Chrome / Firefox] it all works prefectly!
 </p>
-<img src='content/pan/SWITCH.gif'/>
+<p class="description alert">
+		I recommend to view my site in <b>Chrome</b> or <b>Firefox</b>, since it handles Variable Fonts much better than MacOS’ Core Text. <br>
+		<br>
+		I started creating this font system in 2017. Back then, in MacOS, only one axis was working for featureSubstitutions. Now in 2020, it seems that it is still not fully solved in MacOS.
+</p><img src='content/pan/SWITCH.gif'/>
 <link rel="stylesheet" href="type/css/Pan_Clock.css" />
 <style>
   #varUnit.w {
     background-color: #ffc600;
+    padding-bottom: 36px;
+
   }
   .Pan_Clock p {
     font-size: 266px;
-    font-variation-settings: "wght" 30;
   }
 
   @media only screen and (max-width: 700px) {
@@ -115,36 +119,25 @@ Since the drawings are not compatible, featureSubstitutions are needed. Currentl
       fontElementsH.forEach(function (fontElement) {
         fontElement.style.cssText =
           "font-variation-settings:" +
-          "'wght' " +
-          wght +
-          ",'ANGL' " +
-          t[0] +
-          ",'STEP' " +
-          60;
+          "'ANGL' " +
+          t[0]
       });
 
       let fontElementsM = document.querySelectorAll(".M");
       fontElementsM.forEach(function (fontElement) {
         fontElement.style.cssText =
           "font-variation-settings:" +
-          "'wght' " +
-          wght +
-          ",'ANGL' " +
-          t[1] +
-          ",'STEP' " +
-          60;
+          "'ANGL' " +
+          t[1]
       });
 
       let fontElementsS = document.querySelectorAll(".S");
       fontElementsS.forEach(function (fontElement) {
         fontElement.style.cssText =
           "font-variation-settings:" +
-          "'wght' " +
-          wght +
-          ",'ANGL' " +
-          t[2] +
-          ",'STEP' " +
-          60;
+         
+          "'ANGL' " +
+          t[2]
       });
 
       // let fontElementsSep = document.querySelectorAll(".sep");
@@ -163,6 +156,7 @@ Since the drawings are not compatible, featureSubstitutions are needed. Currentl
 </div>
 <style>
   #angler {
+    position: relative;
 
     font-size: 72px;
     background-color: #66e5cc;
@@ -186,6 +180,7 @@ Since the drawings are not compatible, featureSubstitutions are needed. Currentl
 
 <link rel='stylesheet' href='type/css/PanAngler.css'/>
 <div class='PanAngler noLowercase' id='angler'>
+  <p style="background-color: #66e5cc" class='instruction'>mouse over</p>
 
 <p contenteditable="false" class="lineView var">
   <span class="A">A</span><span class="N">N</span><span class="G">G</span><span class="L">L</span><span class="E">E</span><span class="R">R</span>
@@ -278,65 +273,27 @@ Since the drawings are not compatible, featureSubstitutions are needed. Currentl
 
 
 </div>
-<link rel="stylesheet" href="type/css/panv2020.css" />
-<div class="panv2020 varPlay" id="varUnit">
-  <p contenteditable="true" class="lineView">AQUILAE</p>
-  <div class="varSup" style="text-transform: capitalize" id="sliders-panv2020">
-    <input
-      type="range"
-      class="ax"
-      min="2.0"
-      max="70.0"
-      value="2.0"
-      name="panv2020wght"
-      id="panv2020wght"
-    /><label for="panv2020wght">Weight</label><br /><input
-      type="range"
-      class="ax"
-      min="0.0"
-      max="312.0"
-      value="0.0"
-      name="panv2020ANGL"
-      id="panv2020ANGL"
-    /><label for="panv2020ANGL">Angle</label><br /><input
-      type="range"
-      class="ax"
-      min="30.0"
-      max="50.0"
-      value="40.0"
-      name="panv2020STEP"
-      id="panv2020STEP"
-    /><label for="panv2020STEP">Steps</label><br /><input
-      type="range"
-      class="ax"
-      min="0.0"
-      max="2.0"
-      value="0.0"
-      name="panv2020SHAP"
-      id="panv2020SHAP"
-    /><label for="panv2020SHAP">Shapes</label><br />
-  </div>
-  <script>
-    const panv2020Sliders = document.querySelector("#sliders-panv2020");
-    panv2020Sliders.oninput = panv2020Changer;
-    function panv2020Changer(e) {
-      let fontElements = document.querySelectorAll("div.panv2020");
-      fontElements.forEach(function (fontElement) {
-        fontElement.style.cssText =
-          "font-variation-settings:" +
-          "'wght' " +
-          document.querySelector("#panv2020wght").value +
-          ",'ANGL' " +
-          document.querySelector("#panv2020ANGL").value +
-          ",'STEP' " +
-          document.querySelector("#panv2020STEP").value +
-          ",'SHAP' " +
-          document.querySelector("#panv2020SHAP").value;
-      });
-    }
-  </script>
-</div>
+<link rel='stylesheet' href='type/css/Pan_demo.css'/>
+<div class='Pan_demo noLowercase' id='varUnit'>
 
+<p style="font-size: 144px;" contenteditable="true" class="lineView">PAN DEMO</p>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-Pan_demo'><input type='range' class='ax' min='2.0' max='60.0' value='2.0' name='Pan_demowght' id='Pan_demowght'><label for='Pan_demowght'>Weight</label><br><input type='range' class='ax' min='30.0' max='50.0' value='40.0' name='Pan_demoSTEP' id='Pan_demoSTEP'><label for='Pan_demoSTEP'>Steps</label><br><input type='range' class='ax' min='0.0' max='330.0' value='0.0' name='Pan_demoANGL' id='Pan_demoANGL'><label for='Pan_demoANGL'>Angle</label><br><input type='range' class='ax' min='0.0' max='4.0' value='0.0' name='Pan_demoSHAP' id='Pan_demoSHAP'><label for='Pan_demoSHAP'>Shape</label><br><input type='range' class='ax' min='0.0' max='1.0' value='0.0' name='Pan_demoINNR' id='Pan_demoINNR'><label for='Pan_demoINNR'>Inner</label><br><input type='range' class='ax' min='-60.0' max='60.0' value='-60.0' name='Pan_demoPOIN' id='Pan_demoPOIN'><label for='Pan_demoPOIN'>Point</label><br></div>
+<script>
+const Pan_demoSliders = document.querySelector("#sliders-Pan_demo");
+Pan_demoSliders.oninput = Pan_demoChanger;
+function Pan_demoChanger(e) {
+  let fontElements = document.querySelectorAll("div.Pan_demo");
+  fontElements.forEach(function (fontElement) {
+    fontElement.style.cssText =
+      "font-variation-settings:" +
+"'wght' " + document.querySelector("#Pan_demowght").value
++",'STEP' " + document.querySelector("#Pan_demoSTEP").value
++",'ANGL' " + document.querySelector("#Pan_demoANGL").value
++",'SHAP' " + document.querySelector("#Pan_demoSHAP").value
++",'INNR' " + document.querySelector("#Pan_demoINNR").value
++",'POIN' " + document.querySelector("#Pan_demoPOIN").value
+  });}</script>
+</div>
       <!-- <div id="bottomline">&nbsp;</div> -->
     </div>
   </body>

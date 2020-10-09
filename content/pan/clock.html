@@ -2,10 +2,11 @@
 <style>
   #varUnit.w {
     background-color: #ffc600;
+    padding-bottom: 36px;
+
   }
   .Pan_Clock p {
     font-size: 266px;
-    font-variation-settings: "wght" 30;
   }
 
   @media only screen and (max-width: 700px) {
@@ -63,36 +64,25 @@
       fontElementsH.forEach(function (fontElement) {
         fontElement.style.cssText =
           "font-variation-settings:" +
-          "'wght' " +
-          wght +
-          ",'ANGL' " +
-          t[0] +
-          ",'STEP' " +
-          60;
+          "'ANGL' " +
+          t[0]
       });
 
       let fontElementsM = document.querySelectorAll(".M");
       fontElementsM.forEach(function (fontElement) {
         fontElement.style.cssText =
           "font-variation-settings:" +
-          "'wght' " +
-          wght +
-          ",'ANGL' " +
-          t[1] +
-          ",'STEP' " +
-          60;
+          "'ANGL' " +
+          t[1]
       });
 
       let fontElementsS = document.querySelectorAll(".S");
       fontElementsS.forEach(function (fontElement) {
         fontElement.style.cssText =
           "font-variation-settings:" +
-          "'wght' " +
-          wght +
-          ",'ANGL' " +
-          t[2] +
-          ",'STEP' " +
-          60;
+         
+          "'ANGL' " +
+          t[2]
       });
 
       // let fontElementsSep = document.querySelectorAll(".sep");

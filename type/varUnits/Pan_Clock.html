@@ -2,7 +2,7 @@
 <div class='Pan_Clock noLowercasenoUppercase' id='varUnit'>
 
 <p contenteditable="true" class="lineView">OHamburgefonstiv</p>
-<div class='varSup' style='text-transform: capitalize;' id='sliders-Pan_Clock'><input type='range' class='ax' min='2.0' max='100.0' value='2.0' name='Pan_Clockwght' id='Pan_Clockwght'><label for='Pan_Clockwght'>Weight</label><br><input type='range' class='ax' min='0.0' max='354.0' value='0.0' name='Pan_ClockANGL' id='Pan_ClockANGL'><label for='Pan_ClockANGL'>Angle</label><br><input type='range' class='ax' min='30.0' max='40.0' value='35.0' name='Pan_ClockSTEP' id='Pan_ClockSTEP'><label for='Pan_ClockSTEP'>Steps</label><br></div>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-Pan_Clock'><input type='range' class='ax' min='0.0' max='350.0' value='0.0' name='Pan_ClockANGL' id='Pan_ClockANGL'><label for='Pan_ClockANGL'>Angle</label><br></div>
 <script>
 const Pan_ClockSliders = document.querySelector("#sliders-Pan_Clock");
 Pan_ClockSliders.oninput = Pan_ClockChanger;
@@ -11,8 +11,6 @@ function Pan_ClockChanger(e) {
   fontElements.forEach(function (fontElement) {
     fontElement.style.cssText =
       "font-variation-settings:" +
-"'wght' " + document.querySelector("#Pan_Clockwght").value
-+",'ANGL' " + document.querySelector("#Pan_ClockANGL").value
-+",'STEP' " + document.querySelector("#Pan_ClockSTEP").value
+"'ANGL' " + document.querySelector("#Pan_ClockANGL").value
   });}</script>
 </div>

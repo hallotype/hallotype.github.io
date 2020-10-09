@@ -60,3 +60,19 @@ img {
 .icon:hover {
   background-color: white;
 }
+
+.alert {
+  padding: 12px;
+  border: 2px solid #FFCC00;
+  border-radius: 6px;
+  background-color: #FFCC000F;
+}
+.instruction {
+  position: absolute;
+  top: 0px;
+  left:0px;
+  font-family: "Source Code Pro", monospace;
+  font-size: 12px;
+  text-align: left;
+
+}
