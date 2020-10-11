@@ -45,9 +45,46 @@
     <div id="main">
       <img src='content/pan/cover.png'/>
 <p class="description">Pan is a variable type system. The idea is to slice the glyphs in various ways and draw contours with the slice-data. <br>
-Since the drawings are not compatible, featureSubstitutions are needed. Currently three axes [Angle, Steps, Shape] controle what glyph is shown. A special set of tools was needed to create the GSUB table that can handle this.<br><br>
+Since the drawings are not compatible, featureSubstitutions are needed. Currently five axes [Steps, Angle, Shape, Offset, Inner] controle what glyph is shown. A special set of tools was needed to create the GSUB table that can handle this.<br><br>
 
 </p>
+<style>
+  .table, .table-row {
+    max-width: 900px;
+  }
+  .td {
+    max-width: 180px;
+  }
+
+  .td img {
+    max-width: calc(900px * .2);
+  }
+</style>
+
+<div class="table">
+  <div class="tbody">
+    <div class="table-row">
+      <div class="td"><img src="content/pan/Axis_Steps.gif" alt=""></div>
+      <div class="td"><img src="content/pan/Axis_Angle.gif" alt=""></div>
+      <div class="td"><img src="content/pan/Axis_Shapes.gif" alt=""></div>
+      <div class="td"><img src="content/pan/Axis_Offset.gif" alt=""></div>
+      <div class="td"><img src="content/pan/Axis_Inner.gif" alt=""></div>
+    </div>
+    
+    <div class="table-row">
+        <p class="td">Steps</p>
+        <p class="td">Angle</p>
+        <p class="td">Shapes</p>
+        <p class="td">Offset</p>
+        <p class="td">Inner</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <p class="description alert">
 		I recommend to view my site in <b>Chrome</b> or <b>Firefox</b>, since it handles Variable Fonts much better than MacOS’ Core Text. <br>
 		<br>
