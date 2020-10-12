@@ -2,11 +2,31 @@
 <div class='Pan_demo noLowercase' id='varUnit'>
 
 <p style="font-size: 144px;" contenteditable="true" class="lineView">PAN DEMO</p>
-<div class='varSup' style='text-transform: capitalize;' id='sliders-Pan_demo'><input type='range' class='ax' min='2.0' max='60.0' value='40' name='Pan_demowght' id='Pan_demowght'><label for='Pan_demowght'>Weight</label><br><input type='range' class='ax' min='30.0' max='50.0' value='50.0' name='Pan_demoSTEP' id='Pan_demoSTEP'><label for='Pan_demoSTEP'>Steps</label><br><input type='range' class='ax' min='0.0' max='330.0' value='30' name='Pan_demoANGL' id='Pan_demoANGL'><label for='Pan_demoANGL'>Angle</label><br><input type='range' class='ax' min='0.0' max='4.0' value='1' name='Pan_demoSHAP' id='Pan_demoSHAP'><label for='Pan_demoSHAP'>Shape</label><br><input type='range' class='ax' min='0.0' max='1.0' value='0.0' name='Pan_demoINNR' id='Pan_demoINNR'><label for='Pan_demoINNR'>Inner</label><br><input type='range' class='ax' min='-60.0' max='60.0' value='30' name='Pan_demoPOIN' id='Pan_demoPOIN'><label for='Pan_demoPOIN'>Point</label><br></div>
+<div class='varSup' style='text-transform: capitalize;' id='sliders-Pan_demo'>
+	<input type='range' class='ax' min='2.0' max='60.0' value='40' name='Pan_demowght' id='Pan_demowght'><label for='Pan_demowght'>Weight</label><br>
+	<input type='range' class='ax' min='30.0' max='50.0' value='50.0' name='Pan_demoSTEP' id='Pan_demoSTEP'><label for='Pan_demoSTEP'>Steps</label><br>
+	<input type='range' class='ax' min='0.0' max='330.0' value='30' name='Pan_demoANGL' id='Pan_demoANGL'><label for='Pan_demoANGL'>Angle</label><br>
+	<input type='range' class='ax' min='0.0' max='4.0' value='1' name='Pan_demoSHAP' id='Pan_demoSHAP'><label for='Pan_demoSHAP'>Shape</label><br>
+	<input type='range' class='ax' min='0.0' max='1.0' value='0.0' name='Pan_demoINNR' id='Pan_demoINNR'><label for='Pan_demoINNR'>Inner</label><br>
+	<input type='range' class='ax' min='-60.0' max='60.0' value='30' name='Pan_demoPOIN' id='Pan_demoPOIN'><label for='Pan_demoPOIN'>Point</label><br>
+</div>
 <script>
 const Pan_demoSliders = document.querySelector("#sliders-Pan_demo");
 Pan_demoSliders.oninput = Pan_demoChanger;
+
+
 function Pan_demoChanger(e) {
+	console.log(document.querySelector("#Pan_demoSHAP").value);
+	
+	
+	
+	if (document.querySelector("#Pan_demoSHAP").value >= 0 && document.querySelector("#Pan_demoSHAP").value  <= 1.5 || document.querySelector("#Pan_demoSHAP").value >= 2.5 && document.querySelector("#Pan_demoSHAP").value  <= 3.5){
+		document.querySelector("#Pan_demoPOIN").removeAttribute('disabled');
+	} else {
+		document.querySelector("#Pan_demoPOIN").setAttribute('disabled',"");
+	}
+
+
   let fontElements = document.querySelectorAll("div.Pan_demo");
   fontElements.forEach(function (fontElement) {
     fontElement.style.cssText =
