@@ -56,33 +56,61 @@
   For extracting the font, a few parameters are needed:<br />
   <b>></b> the byte where the font starts <br />
   <b>></b> order of characters <br /><br />
-  Quite often there is a black character between letters in the rom. I think
+  Quite often there is a blank character between letters in the rom. I think
   this is because one is the foreground layer and the next is the background (or
   vise versa). For now, I just skip every second character.
 </p>
-<a
-  class="icon"
-  href="https://raw.githubusercontent.com/hallotype/hallotype.github.io/master/content/NESFont/DrawRom.py"
-  ><img src="content/NESFont/PyIcon.png" />
-</a>
-
 <p class="description">
+  <b>The sprites</b>
   <br />
-  <a
-    href="https://raw.githubusercontent.com/hallotype/hallotype.github.io/master/content/NESFont/DrawRom.py"
-  >
-    << Download here my <b>DrawRom.py</b> DrawBot script.
-  </a>
-</p>
-<div class="clear"></div>
-<p class="description">
-  From here its a small step to draw the pixels into a glyph...
+  The sprite order in these images is: top to bottom, left to right.<br />
+  Starting at $9000, the next 128 sprites look like this.<br /><br />
+  <img
+    class="img_halfwidth"
+    src="content/NESFont/SMB1_$9000.png"
+    alt="plaatje"
+  />
+  <br />
+  Let’s ignore the very first 2 sprites; starting with the zero.<br />
+  The glyph order is: <b>"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ "</b>.<br />
+  Notice the space at the end.
+  <br />
+  Than some sprites we don’t care about, these can be ignored with an
+  @-symbol.<br />
+  The final glyph order look like:<br />
+  <b>glyphOrder = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ @@@-×@!"</b>
+  <br /><br />
+  So now we know where the font starts: $9000 + 2*$8 = $9010 and we have the
+  glyphOrder.
 </p>
 
-still a draft!still a draft!still a draft!still a draft!still a draft!still a
-draft!still a draft!still a draft!still a draft!still a draft!still a
-draft!still a draft!still a draft!still a draft!still a draft!still a
-draft!still a draft!
+<p class="description">
+  <b>Draw the font</b><br />
+  Since it is all pixels, we need a pixelSize: <b>pixelSize = 100</b>.<br />
+  Let’s loop through the glyphOrder and add a glyph to the font. The glyphName
+  we can get from the <b>glyphNameFormatter</b> module. <br />
+  Starting at $9010, we fetch a byte and draw pixels in the glyph. Every glyph
+  is 8 bytes. And.. that is all.<br /><br />
+  The most work is finding out where the font-characters are. And define the
+  glyphOrder. Sometimes the fonts is not in one place and is scattered in the
+  data. An <b>addGlyph(byte, glyphName)</b> would be handy. But, ‘I leave that
+  as an exercise’.
+</p>
+
+<p class="description">
+  <b>Goodies</b><br />
+  Here are some scripts:<br />
+  <a href="content/NESFont/DrawRom.py">> DrawRom.py</a> <br />
+  <a href="content/NESFont/NESFonter.py">> NESFonter.py</a> <br /><br />
+  I can not provide the actual rom files of course.
+</p>
+<br /><br /><br />
+<p class="description">
+  The End<br />You made it all the way to the bottom! If you have any feedback
+  on my tutorial, please get in digitally-touch. I am new to these kind of
+  tutorial / instructions I want to learn to do better. Find my mail within the
+  scripts. <br /><br />Thanks, Thom
+</p>
 
       <!-- <div id="bottomline">&nbsp;</div> -->
     </div>

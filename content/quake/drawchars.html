@@ -1,0 +1,36 @@
+<p class="description" >
+  With all this information I can draw the full character set:<br>
+  loop through all the bytes in CONCHAR, look up and set the color, draw a pixel.<br>
+</p>  
+
+<style>
+  .table, .table-row {
+    max-width: 900px;
+  }
+  .td {
+    max-width: 180px;
+  }
+
+  .td img {
+    max-width: calc(900px * .5);
+  }
+</style>
+
+<div class="table">
+  <div class="tbody">
+    <div class="table-row">
+      <div class="td"><img src="content/quake/palette.png" alt=""></div>
+      <div class="td"><img src="content/quake/quakeCharSet.png" alt=""></div>
+    </div>
+    
+    <div class="table-row">
+        <p class="td">Palette</p>
+        <p class="td">CONCHAR</p>
+    </div>
+  </div>
+</div>
+
+<p class="description" >
+  You see that the character set is double. First a grey, than brown/rust. The fun thing about the grey one is that its all the same row in the palette. With means I can shift to an other row and I get a different color. The Rust color set is more color designed so to speak. <br>
+</p> 
+<img src="content/quake/colorShifts.gif" alt="colorShifts.gif">

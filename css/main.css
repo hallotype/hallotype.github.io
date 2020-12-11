@@ -20,8 +20,13 @@ html {
 }
 #main {
   margin-left: 72px;
+  line-height: 120%;
+
 }
 
+ul {
+  max-width: 800px;
+}
 b {
   font-weight: 600;
 }
