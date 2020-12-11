@@ -150,3 +150,7 @@ div.mermaid {
 .tbody {
   display: table-row-group;
 }
+
+.tags ol li {
+  	list-style: none;
+}
