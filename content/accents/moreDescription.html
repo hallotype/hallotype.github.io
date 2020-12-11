@@ -1,0 +1,17 @@
+  In a nutshell:<ul>
+    <li>A set of Constructions is stored in the font</li>
+    <li>An Editor can easily edit/add/remove/activate individual Constructions</li>
+    <li>For placing anchors, an Observer helps by drawing the accents on baseGlyphs in GlyphView</li>
+    <li>A batch script compiles all Active Constructions in the font</li>
+  </ul>
+  
+  <br>
+  
+  But also:
+  
+  <ul>
+    <li>No double data! The majurity of the Constructions is the same for capitals and lowercase. Only care about the caps, the lowercase will follow. If the lowercase need special treatment, add only those</li> 
+    <li>Same for SmallCaps, those Constructions are the same as the normal Caps</li>
+    <li>No need to worry about cap-variants in the Constructions. If the anchor if above a threshold the library is automatically searching for a cap-variant in the font and uses that if found </li>
+    <li>The Observer warns you if anchors are missing and can place them roughly in the correct area</li>
+  </ul>
