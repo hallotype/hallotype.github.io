@@ -15,9 +15,10 @@ from collections import OrderedDict
 sitecontent = OrderedDict()
 sitecontent["cover.png"] = "some text"
 sitecontent["moreDescription.html"] = "some text"
+sitecontent["screencast.html"] = "some text"
 sitecontent["DrawingObserver.png"] = "some text"
 sitecontent["Editor.png"] = "some text"
 sitecontent["MissingAnchor.png"] = "some text"
-sitecontent["todo.html"] = "some text"
+# sitecontent["todo.html"] = "some text"
 
 
