@@ -1,0 +1,31 @@
+<style>
+  .table, .table-row {
+    max-width: 900px;
+  }
+  .td {
+    max-width: 180px;
+  }
+
+  .td img {
+    max-width: calc(900px * .5);
+  }
+</style>
+
+<div class="table">
+  <div class="tbody">
+    <div class="table-row">
+      <div class="td"><img src="content/smartType/smcp1.png" alt=""></div>
+      <div class="td"><img src="content/smartType/feaCode1.png" alt=""></div>
+    </div>
+    
+    <!-- <div class="table-row">
+        <p class="td">Palette</p>
+        <p class="td">CONCHAR</p>
+    </div> -->
+  </div>
+</div>
+
+<p class="description" >
+  After the font is generated, a script reads the features to see what the default state should be. An FSET-table is compiled and put into the otf.<br><br>
+  When the font used in a graphics app, the app should read the FSET and set the OT features accordingly. 
+</p> 
