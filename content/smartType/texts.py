@@ -1,4 +1,4 @@
-title = 'smart type'
+title = 'Smart Type'
 
 tags = '''features 
 engineering'''

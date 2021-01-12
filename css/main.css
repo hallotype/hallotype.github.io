@@ -6,22 +6,14 @@
   clear: both;
 }
 
-#bottomline {
-  position: fixed;
-  bottom: 0px;
-  background-color: #ff0020;
-  width: 100vw;
-  font-size: 6px;
-}
-
 html {
   font-family: "Source Code Pro", monospace;
   line-height: 2em;
 }
+
 #main {
   margin-left: 72px;
   line-height: 120%;
-
 }
 
 ul {
@@ -152,5 +144,43 @@ div.mermaid {
 }
 
 .tags ol li {
-  	list-style: none;
+  list-style: none;
 }
+
+#footerContainer {
+  left: 0;
+}
+
+#bottomline {
+  position: sticky;
+  bottom: 0px;
+  background-color: #ff0020;
+  background: linear-gradient(
+    30deg,
+    rgb(233, 27, 61) 0%,
+    rgb(243, 12, 108) 100%
+  );
+
+  font-size: 6px;
+  padding-left: 54px;
+}
+
+#footer {
+  background-color: #ff0020;
+  background: rgb(67, 218, 216);
+  background: linear-gradient(
+    30deg,
+    rgb(233, 27, 61) 0%,
+    rgb(243, 12, 108) 100%
+  );
+  padding-left: 54px;
+  min-height: 160px;
+  line-height: 150%;
+}
+#footer p.left {
+  margin-top: 16px;
+  margin-left: 20px;
+}
+
+/* thanks Christoph Koeberlin ;) */
+#preat::after{content: "\40";}

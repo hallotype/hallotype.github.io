@@ -1,4 +1,4 @@
-title = 'accents'
+title = 'Accents'
 
 tags = '''workflow
 ufo

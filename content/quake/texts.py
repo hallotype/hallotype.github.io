@@ -1,4 +1,4 @@
-title = 'quake'
+title = 'Quake'
 
 tags = '''binary data
 '''

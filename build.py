@@ -20,8 +20,9 @@ def generateProjectPage(project):
     content = ""
     if project['content']:
         for index, item in enumerate(project['content']):
+            print(item)
             # image
-            if Path(item).suffix in [".png", ".gif"]:
+            if Path(item).suffix in [".png", ".gif", ".pdf"]:
                 content += """<img src='%s/%s'/>\n""" % (project['path'], item)
                 # then description
                 if index == 0 and project['texts'].description:
@@ -36,7 +37,8 @@ def generateProjectPage(project):
     projHtml = projHtml.format(
         title=project['texts'].title,
         header=headerFileTxt,
-        project=content)
+        project=content,
+        footer=footer)
     proj.write(projHtml)
     proj.close()
 
@@ -53,6 +55,10 @@ projTem.close()
 projHtmlTem = open("templateProjectHtml.html", "r")
 projHtmlTemp = projHtmlTem.read()
 projHtmlTem.close()
+
+footerFile = open("footer.html", "r")
+footer = footerFile.read()
+footerFile.close()
 
 # get content order
 order = open('order', 'r').read().split("\n")
@@ -118,7 +124,8 @@ htmlIndex = open("index.html", "w+")
 htmlIndex.write(htmlFileTxt.format(
     # fontcsses=fontcsses,
     header=headerFileTxt,
-    projects=projects
+    projects=projects,
+    footer=footer,
 )
 )
 htmlIndex.close()
